@@ -54,7 +54,7 @@ set.seed(7)
 
 #set path of the working directory where input data available
 # Input Data
-Example Input data: "TCGA-LGG_protein_coding_FPKM_data_with_clin_data.txt" is a tab separated file.  It contains Samples (529 LGG Cancer Samples) in the rows and Features in the columns. Gene Expression is available in terms of FPKM values in the data.
+Example Input data: "Example_TCGA_LGG_FPKM_data.txt" is a tab separated file.  It contains Samples (184 LGG Cancer Samples) in the rows and Features in the columns. Gene Expression is available in terms of FPKM values in the data.
 Features information: In the data there are 11 clinical + demographic, 4 types survival with time and event information  and 19,978 protein coding genes.
 Clinical and demographic features: Clinical demographic features that are present in this example data include Age,  subtype,  gender,  race,  ajcc_pathologic_tumor_stage,  histological_type, histological_grade,  treatment_outcome_first_course, radiation_treatment_adjuvant,  sample_type,  type.
 Types of Survival: 4 types of Survival include OS (overall survival), PFS (progression-free survival), DSS (disease-specific survival), DFS (Disease-free survival). In the data, column names OS, PFS, DSS and DFS represent event information, while  OS.time, PFS.time, DSS.time and DFS.time indicate survival time in days.
@@ -66,7 +66,7 @@ Step 1- Data Processing: This function converts OS time (in days) into months an
 SurvPredPipe::data_process_f(data="TCGA-LGG_protein_coding_FPKM_data_with_clin_data.txt",col_num=20, output="New_data.txt") 
 ```
 
-After data processing, we got a new output file “New_data.txt”, which contains 498 samples. Thus, data_process_f function removes 31 samples where OS/OS time information is missing. Besides, here is a new 21st column in the data with  column name “OS_month”  where OS time is available in months.
+After data processing, we got a new output file “New_data.txt”, which contains 176 samples. Thus, data_process_f function removes 8 samples where OS/OS time information is missing. Besides, here is a new 21st column in the data with  column name “OS_month”  where OS time is available in months.
 
 
 Step 2 - Split Data into Training and Test Subset: Before proceeding further, we need to split our data into training and test subset for the purpose of feature selection and model development. Here, we need output from the previous step as an input ( which was “New_data.txt”). Next we need to define the fraction (e.g. 0.9) by which we want to split data into training and test. Thus, fraction=0.9 will split data into 90% training and 10% as test set. Besides, we also need to provide training and set output names (e.g. train_FPKM.txt,test_FPKM.txt )
@@ -78,7 +78,7 @@ SurvPredPipe::tr_test_f(data="New_data.txt",fraction=0.9, train_data="train_FPKM
 ```
 
 
-After the train-test split, we got a two new outputs:  “train_FPKM.txt”, “test_FPKM.txt”, where, train_FPKM.txt contains 448 samples and test_FPKM.txt contains 50 samples. Thus, tr_test_f function splits data into 90:10 ratio. 
+After the train-test split, we got a two new outputs:  “train_FPKM.txt”, “test_FPKM.txt”, where, train_FPKM.txt contains 158 samples and test_FPKM.txt contains 18 samples. Thus, tr_test_f function splits data into 90:10 ratio. 
 
 Step 3 - Data Normalization: Next to select features and develop ML models, data must be normalized. Since, expression is available in terms of FPKM values. Thus,  `train_test_normalization_f` function will first convert FPKM value into log scale [log2(FPKM+1) followed by quantile normalization using the “preprocessCore” package. Here, training data will be used as a target matrix for quantile normalization.  Here, we need to provide training and test datasets (that we obtained from the  previous step of Train/Test Split). Further, we need to provide column number where clinical information ends (e.g. 21) in the input datasets. Besides, we also need to provide output files names (train_clin_data (which contains only Clinical information of training data), test_clin_data (which contains only Clinical information of training data), train_Normalized_data_clin_data (which contains Clinical information and normalized values of genes of training samples), test_Normalized_data_clin_data (which contains Clinical information and normalized values of genes of test samples).
 
@@ -139,7 +139,7 @@ After, implementing MTLR_pred_model_f function , we got following outputs:
 1. Model_with_PI.RData : Model on training data
 2. survCurves_data.txt: Table containing predicted survival probability of each patient at different time points. This data can be further used to plot the survival curve of patients.
 3. mean_median_survival_time_data.txt: Table containing predicted mean and median survival time  of each patient in the test data. This data can be further used for bar plots.
-4. Error_mat_for_Model.txt: Table containing performance parameters obtained on test data based on prediction model. It contains IBS score (Integrated Brier Score) =0.227, C-Index =0.85.
+4. Error_mat_for_Model.txt: Table containing performance parameters obtained on test data based on prediction model. It contains IBS score (Integrated Brier Score) =0.192, C-Index =0.81.
 
 
 Step 6 - Survival curves/plots for individual patient
