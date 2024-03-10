@@ -6,8 +6,8 @@ Follow the Steps to Install package
 #Step1: First Install remote package
 install.packages("remotes") 
 #load remortes package
-library(remotes)
+library("remotes")
 #Step2: install SurvPredPipe package
 remotes::install_github("hks5august/SurvPredPipe", local = TRUE)
 # load package
-library(SurvPredPipe) 
+library("SurvPredPipe") 
