@@ -54,7 +54,7 @@ set.seed(7)
 
 #set path of the working directory where input data available
 # Input Data
-Example Input data: "TCGA-LGG_protein_coding_FPKM_data_with_clin_data.txt" is a tab separated file.  It contains Samples (529 LGG Cancer Samples) in the rows and Features in the columns. Gene Expression is available in terms of FPKM values in the data.
+Example Input data: "Example_TCGA_LGG_FPKM_data.txt" is a tab separated file.  It contains Samples (184 LGG Cancer Samples) in the rows and Features in the columns. Gene Expression is available in terms of FPKM values in the data.
 Features information: In the data there are 11 clinical + demographic, 4 types survival with time and event information  and 19,978 protein coding genes.
 Clinical and demographic features: Clinical demographic features that are present in this example data include Age,  subtype,  gender,  race,  ajcc_pathologic_tumor_stage,  histological_type, histological_grade,  treatment_outcome_first_course, radiation_treatment_adjuvant,  sample_type,  type.
 Types of Survival: 4 types of Survival include OS (overall survival), PFS (progression-free survival), DSS (disease-specific survival), DFS (Disease-free survival). In the data, column names OS, PFS, DSS and DFS represent event information, while  OS.time, PFS.time, DSS.time and DFS.time indicate survival time in days.
@@ -63,10 +63,10 @@ Step 1- Data Processing: This function converts OS time (in days) into months an
 
 ```{r setup}
 #Data Processing:  
-SurvPredPipe::data_process_f(data="TCGA-LGG_protein_coding_FPKM_data_with_clin_data.txt",col_num=20, output="New_data.txt") 
+SurvPredPipe::data_process_f(data="Example_TCGA_LGG_FPKM_data.txt",col_num=20, output="New_data.txt") 
 ```
 
-After data processing, we got a new output file “New_data.txt”, which contains 498 samples. Thus, data_process_f function removes 31 samples where OS/OS time information is missing. Besides, here is a new 21st column in the data with  column name “OS_month”  where OS time is available in months.
+After data processing, we got a new output file “New_data.txt”, which contains 176 samples. Thus, data_process_f function removes 8 samples where OS/OS time information is missing. Besides, here is a new 21st column in the data with  column name “OS_month”  where OS time is available in months.
 
 
 Step 2 - Split Data into Training and Test Subset: Before proceeding further, we need to split our data into training and test subset for the purpose of feature selection and model development. Here, we need output from the previous step as an input ( which was “New_data.txt”). Next we need to define the fraction (e.g. 0.9) by which we want to split data into training and test. Thus, fraction=0.9 will split data into 90% training and 10% as test set. Besides, we also need to provide training and set output names (e.g. train_FPKM.txt,test_FPKM.txt )
