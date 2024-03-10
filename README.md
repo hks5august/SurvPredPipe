@@ -10,4 +10,4 @@ library(remotes)
 #Step2: install SurvPredPipe package
 remotes::install_github("hks5august/SurvPredPipe", local = TRUE)
 # load package
-library(SurvPredPipe)'''
+library(SurvPredPipe) ```
