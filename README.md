@@ -11,3 +11,13 @@ library("remotes")
 remotes::install_github("hks5august/SurvPredPipe", local = TRUE)
 # load package
 library("SurvPredPipe") 
+```
+
+
+SurvPredPipe_workflow.Rmd file explains workflow with an example for user to follow.
+
+The "R" folder  contains Rscript for all the functions
+
+The "inst" folder/directory contains two folders: (1) "extdata" subfolder contains example input data files, user can run example and prepare their input files accoding to example files; (2) output_data contains all the output after running the pipeline with example input data.
+
+The vignettes directory contains Figures, extdata, workflow file.
