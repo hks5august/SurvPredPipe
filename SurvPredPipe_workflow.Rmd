@@ -157,12 +157,12 @@ After, implementing MTLR_pred_model_f function , we got following outputs:
 
 
 Step 6 - Survival curves/plots for individual patient
-Next to visualize survival of patients, we will plot survival curve plots using the surv_curve_plots_f function  based on the data “survCurves_data.txt” that we obtained from the previous step after running the  MTLR_pred_model_f function. Further,  the surv_curve_plots_f function also allows highlighting a specific patient on the curve. Thus the function  needs only two inputs: 1) Surv_curve_data, (2) Sample ID of a specific patient (e.g. TCGA-DH-5140-01) that needs to be highlighted.
+Next to visualize survival of patients, we will plot survival curve plots using the surv_curve_plots_f function  based on the data “survCurves_data.txt” that we obtained from the previous step after running the  MTLR_pred_model_f function. Further,  the surv_curve_plots_f function also allows highlighting a specific patient on the curve. Thus the function  needs only two inputs: 1) Surv_curve_data, (2) Sample ID of a specific patient (e.g. TCGA-TQ-A8XE-01) that needs to be highlighted.
 
 
 ```{r setup}
 #Create Survival curves/plots for individual patients
-SurvPredPipe::surv_curve_plots_f(Surv_curve_data="survCurves_data.txt", selected_sample="TCGA-DH-5140-01")
+SurvPredPipe::surv_curve_plots_f(Surv_curve_data="survCurves_data.txt", selected_sample="TCGA-TQ-A8XE-01")
 ```
 
 Here, we obtained two output plots:
@@ -172,12 +172,12 @@ Here, we obtained two output plots:
 
 
 Step 7 - Bar Plot for predicted  mean and median survival time of individual patients
-Next to visualize predicted survival time of patients, we will plot barplot for mean/median using “mean_median_surv_barplot_f” function based on the data that we obtained from step 5 after running the  MTLR_pred_model_f function. Further,  the mean_median_surv_barplot_f function also allows highlighting a specific patient on the curve. Thus the function  needs only two inputs: 1) surv_mean_med_data, (2) Sample ID of a specific patient (e.g. TCGA-DH-5140-01) that needs to be highlighted.
+Next to visualize predicted survival time of patients, we will plot barplot for mean/median using “mean_median_surv_barplot_f” function based on the data that we obtained from step 5 after running the  MTLR_pred_model_f function. Further,  the mean_median_surv_barplot_f function also allows highlighting a specific patient on the curve. Thus the function  needs only two inputs: 1) surv_mean_med_data, (2) Sample ID of a specific patient (e.g. TCGA-TQ-A8XE-01) that needs to be highlighted.
 
 
 ```{r setup}
 #Create Bar Plot for predicted  mean and median survival time of individual patients
-SurvPredPipe::mean_median_surv_barplot_f(surv_mean_med_data="mean_median_survival_time_data.txt", selected_sample="TCGA-DH-5140-01")
+SurvPredPipe::mean_median_surv_barplot_f(surv_mean_med_data="mean_median_survival_time_data.txt", selected_sample="TCGA-TQ-A8XE-01")
 ```
 Here, we obtained two output plots:
 1. Barplot for all patients in the test data, where the red color bar represents mean survival and cyan/green color bar represents median survival time. 
