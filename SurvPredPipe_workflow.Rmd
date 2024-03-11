@@ -128,11 +128,25 @@ Train_Uni_sig_data.txt: It contains expression of significant genes selected by 
 Test_Uni_sig_data.txt: It contains expression of significant genes selected by univariate survival analysis for test samples.
 
 Step 5 - Prediction model development for survival probability of patients
-After selecting significant or key features using LASSO or Univariate survival analysis, next we want to develop an ML prediction model to predict survival probability of patients. MTLR_pred_model_f function of SurvPredPipe give us multiple options to develop models including Only Clinical features (Model_type=1), PI score (Model_type=2), PI Score + Clinical features (Model_type=3), Significant Univariate features (Model_type=4), Significant Univariate features Clinical features (Model_type=5) using MTLR package. Further, here, we were interested in developing a model based on PI score. Thus, we need to provide following inputs: (1) Training data with only clinical features, (2) Test data with only clinical features, (3) Model type (e.g. 2, since we want to develop model based on PI score), (4) Training data with PI score , (5) Test data with PI score.
+After selecting significant or key features using LASSO or Univariate survival analysis, next we want to develop an ML prediction model to predict survival probability of patients. MTLR_pred_model_f function of SurvPredPipe give us multiple options to develop models including Only Clinical features (Model_type=1), PI score (Model_type=2), PI Score + Clinical features (Model_type=3), Significant Univariate features (Model_type=4), Significant Univariate features Clinical features (Model_type=5) using MTLR package. Further, here, we were interested in developing a model based on PI score. Thus, we need to provide following inputs: (1) Training data with only clinical features, (2) Test data with only clinical features, (3) Model type (e.g. 2, since we want to develop model based on PI score), (4) Training data with PI score , (5) Test data with PI score, (6) Key_PI_list.txt containing name of feature used to build model.
 
 ```{r setup}
 # Survival Model Development and Prediction of Survival, survival probability for Individual Patients using Selected Features employing MTLR
-SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "TestClin.txt", Model_type = 2, train_features_data = "Train_PI_data.txt", test_features_data = "Test_PI_data.txt" )
+# Model for only Clinical features
+SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "Test_Clin.txt", Model_type = 1, train_features_data = "Train_Clin.txt", test_features_data = "Test_Clin.txt" , Clin_Feature_List="Key_Clin_feature_list.txt")
+
+# Model for PI
+SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "Test_Clin.txt", Model_type = 2, train_features_data = "Train_PI_data.txt", test_features_data = "Test_PI_data.txt" , Clin_Feature_List="Key_PI_list.txt")
+
+# Model for Clinical features + PI
+SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "Test_Clin.txt", Model_type = 3, train_features_data = "Train_PI_data.txt", test_features_data = "Test_PI_data.txt" , Clin_Feature_List="Key_Clin_features_with_PI_list.txt")
+
+# Model for univariate features
+SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "Test_Clin.txt", Model_type = 4, train_features_data = "Train_Uni_sig_data.txt", test_features_data = "Test_Uni_sig_data.txt" , Clin_Feature_List="Key_univariate_features_list.txt")
+
+# Model for Univariate + Clinical features
+SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "Test_Clin.txt", Model_type = 5, train_features_data = "Train_Uni_sig_data.txt", test_features_data = "Test_Uni_sig_data.txt" , Clin_Feature_List="Key_univariate_features_with_Clin_list.txt")
+
 ```
 
 After, implementing MTLR_pred_model_f function , we got following outputs:
