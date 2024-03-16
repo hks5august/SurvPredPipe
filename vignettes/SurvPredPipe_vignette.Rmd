@@ -59,11 +59,12 @@ Features information: In the data there are 11 clinical + demographic, 4 types s
 Clinical and demographic features: Clinical demographic features that are present in this example data include Age,  subtype,  gender,  race,  ajcc_pathologic_tumor_stage,  histological_type, histological_grade,  treatment_outcome_first_course, radiation_treatment_adjuvant,  sample_type,  type.
 Types of Survival: 4 types of Survival include OS (overall survival), PFS (progression-free survival), DSS (disease-specific survival), DFS (Disease-free survival). In the data, column names OS, PFS, DSS and DFS represent event information, while  OS.time, PFS.time, DSS.time and DFS.time indicate survival time in days.
 
-Step 1- Data Processing: This function converts OS time (in days) into months and then removes samples where OS/OS.time information is missing. Here, we need to provide input data in tsv or txt  format. Further, we needs to define col_num (column number at which clinical/demographic and survival information ends, e.g. 20, and output file name, e.g.  “New_data.txt”
+Step 1- Data Processing: This function converts OS time (in days) into months and then removes samples where OS/OS.time information is missing.
+Here, we need to provide input data in tsv or txt  format. Further, we needs to define col_num (column number at which clinical/demographic and survival information ends,e.g. 20,  surv_time (name of column which contain survival time (in days) information, e.g. OS.time ) and output file name, e.g.  “New_data.txt”
 
 ```{r setup}
 #Data Processing:  
-SurvPredPipe::data_process_f(data="Example_TCGA_LGG_FPKM_data.txt",col_num=20, output="New_data.txt") 
+SurvPredPipe::data_process_f(data="Example_TCGA_LGG_FPKM_data.txt",col_num=20, surv_time="OS.time" , output="New_data.txt")
 ```
 
 After data processing, we got a new output file “New_data.txt”, which contains 176 samples. Thus, data_process_f function removes 8 samples where OS/OS time information is missing. Besides, here is a new 21st column in the data with  column name “OS_month”  where OS time is available in months.
@@ -96,13 +97,13 @@ Next to create a survival model, we  will  create a Prognostic Index (PI)  Score
 
 PI score  = G1*B1 + G2*B2 + G3 * B3 + G4*B4+ G5*B5
 
-Here, we need to provide Normalized training (Train_Norm_data.txt) and test data (Test_Norm_data.txt)as input data that we have obtained from the previous function “train_test_normalization_f”. Further, we need to provide col_num n column number at which clinical features ends (e.g. 21), nfolds  (number of folds  e.g. 5) for the LASSO regression method to select features. We implemented LASSO using the “glmnet” package. Besides, we also need to provide names and training and test output file names to store data containing LASSO genes and PI values. 
+Here, we need to provide Normalized training (Train_Norm_data.txt) and test data (Test_Norm_data.txt)as input data that we have obtained from the previous function “train_test_normalization_f”. Further, we need to provide col_num n column number at which clinical features ends (e.g. 21), nfolds  (number of folds  e.g. 5) for the LASSO regression method to select features. We implemented LASSO using the “glmnet” package.  Further, we need to provide surv_time (name of column containing survival time in months, e.g. OS_month) and surv_event (name of column containing survival event information, e.g. OS) information in the data. Besides, we also need to provide names and training and test output file names to store data containing LASSO genes and PI values.
 
 
 
 ```{r setup}
 # Feature Selection using LASSO Regression and Prognostic Index (PI)  Score Calculation
-SurvPredPipe::Lasso_PI_scores_f(train_data="Train_Norm_data.txt",test_data="Test_Norm_data.txt", nfolds=5, col_num=21, train_PI_data="Train_PI_data.txt", test_PI_data="Test_PI_data.txt" )
+SurvPredPipe::Lasso_PI_scores_f(train_data="Train_Norm_data.txt",test_data="Test_Norm_data.txt", nfolds=5, col_num=21, surv_time="OS_month" , surv_event="OS" , train_PI_data="Train_PI_data.txt", test_PI_data="Test_PI_data.txt" )
 ```
 
 Thus, Lasso_PI_scores_f gave us following outputs:
@@ -114,12 +115,12 @@ Thus, Lasso_PI_scores_f gave us following outputs:
 
 Step 4b - Univariate  Survival Significant Feature Selection:
 Besides PI score, with the “Univariate_sig_features_f” function of SurvPredPipe package, we can select significant (p-value <0.05) features based on univariate survival analysis. These features are selected based on their capability to stratify high-risk and low-risk survival groups using the cut off value of their median expression.  
-Here, we need to provide Normalized training (Train_Norm_data.txt) and test data (Test_Norm_data.txt)as input data that we have obtained from the previous function “train_test_normalization_f”. Further, we need to provide a “col_num” (e.g 21)column number at which clinical features ends. Besides, we also need to provide names and training and test output file names to store data containing expression of selected genes.
+Here, we need to provide Normalized training (Train_Norm_data.txt) and test data (Test_Norm_data.txt)as input data that we have obtained from the previous function “train_test_normalization_f”. Further, we need to provide a “col_num” (e.g 21)column number at which clinical features ends. Further, we need to provide surv_time (name of column containing survival time in months, e.g. OS_month) and surv_event (name of column containing survival event information, e.g. OS) information in the data. Besides, we also need to provide names and training and test output file names to store data containing expression of selected genes.
 
 
 ```{r setup}
 # Feature selection using Univariate Survival Analysis
-`SurvPredPipe::Univariate_sig_features_f(train_data="Train_Norm_data.txt", test_data="Test_Norm_data.txt", col_num=21, output_univariate_train="Train_Uni_sig_data.txt", output_univariate_test="Test_Uni_sig_data.txt")
+SurvPredPipe::Univariate_sig_features_f(train_data="Train_Norm_data.txt", test_data="Test_Norm_data.txt", col_num=21, surv_time="OS_month" , surv_event="OS" ,output_univariate_train="Train_Uni_sig_data.txt", output_univariate_test="Test_Uni_sig_data.txt")
 ```
 
 Thus, Univariate_sig_features_f  gave us following outputs:
@@ -128,11 +129,34 @@ Train_Uni_sig_data.txt: It contains expression of significant genes selected by 
 Test_Uni_sig_data.txt: It contains expression of significant genes selected by univariate survival analysis for test samples.
 
 Step 5 - Prediction model development for survival probability of patients
-After selecting significant or key features using LASSO or Univariate survival analysis, next we want to develop an ML prediction model to predict survival probability of patients. MTLR_pred_model_f function of SurvPredPipe give us multiple options to develop models including Only Clinical features (Model_type=1), PI score (Model_type=2), PI Score + Clinical features (Model_type=3), Significant Univariate features (Model_type=4), Significant Univariate features Clinical features (Model_type=5) using MTLR package. Further, here, we were interested in developing a model based on PI score. Thus, we need to provide following inputs: (1) Training data with only clinical features, (2) Test data with only clinical features, (3) Model type (e.g. 2, since we want to develop model based on PI score), (4) Training data with PI score , (5) Test data with PI score.
+After selecting significant or key features using LASSO or Univariate survival analysis, next we want to develop an ML prediction model to predict survival probability of patients. MTLR_pred_model_f function of SurvPredPipe give us multiple options to develop models including Only Clinical features (Model_type=1), PI score (Model_type=2), PI Score + Clinical features (Model_type=3), Significant Univariate features (Model_type=4), Significant Univariate features Clinical features (Model_type=5) using MTLR package. Further, here, we were interested in developing a model based on PI score. Thus, we need to provide following inputs: (1) Training data with only clinical features, (2) Test data with only clinical features, (3) Model type (e.g. 2, since we want to develop model based on PI score), (4) Training data with PI score , (5) Test data with PI score, (6) Clin_Feature_List (e.g. Key_PI_list.txt), a list of features which will be  used to build model . Furthermore, we also need to provide surv_time (name of column containing survival time in months, e.g. OS_month) and surv_event (name of column containing survival event information, e.g. OS) information in the clinical data
+
 
 ```{r setup}
 # Survival Model Development and Prediction of Survival, survival probability for Individual Patients using Selected Features employing MTLR
-SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "TestClin.txt", Model_type = 2, train_features_data = "Train_PI_data.txt", test_features_data = "Test_PI_data.txt" )
+# Model for only Clinical features
+SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "Test_Clin.txt", Model_type = 1, train_features_data = "Train_Clin.txt", test_features_data = "Test_Clin.txt" , Clin_Feature_List="Key_Clin_feature_list.txt", surv_time="OS_month", surv_event="OS")
+
+
+
+# Model for PI
+SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "Test_Clin.txt", Model_type = 2, train_features_data = "Train_PI_data.txt", test_features_data = "Test_PI_data.txt" , Clin_Feature_List="Key_PI_list.txt", surv_time="OS_month", surv_event="OS")
+
+
+
+# Model for Clinical features + PI
+SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "Test_Clin.txt", Model_type = 3, train_features_data = "Train_PI_data.txt", test_features_data = "Test_PI_data.txt" , Clin_Feature_List="Key_Clin_features_with_PI_list.txt", surv_time="OS_month",  surv_event="OS")
+
+
+# Model for univariate features
+SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "Test_Clin.txt", Model_type = 4, train_features_data = "Train_Uni_sig_data.txt", test_features_data = "Test_Uni_sig_data.txt" , Clin_Feature_List="Key_univariate_features_list.txt",  surv_time="OS_month", surv_event="OS")
+
+
+# Model for Univariate + Clinical features
+SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "Test_Clin.txt", Model_type = 5, train_features_data = "Train_Uni_sig_data.txt", test_features_data = "Test_Uni_sig_data.txt" , Clin_Feature_List="Key_univariate_features_with_Clin_list.txt", , surv_time="OS_month", surv_event="OS")
+
+
+
 ```
 
 After, implementing MTLR_pred_model_f function , we got following outputs:
@@ -172,12 +196,13 @@ Here, we obtained two output plots:
 
 
 Step 8- Nomogram based on Key features
-Next, the Nomogram_generate_f function of SurvPredPipe  also provides an option to generate a nomogram plot based on user defined clinical and other features in the data. For instance, we will generate a nomogram based on 6 features (Age, gender, race, histological_type, sample_type, PI). Here, we will provide data containing all the features (Samples in rows and features in columns) (e.g. Train_Data_Nomogram_input.txt) and a list of features (feature_list_for_Nomogram.txt) based on which we want to generate a nomogram.
+Next, the Nomogram_generate_f function of SurvPredPipe  also provides an option to generate a nomogram plot based on user defined clinical and other features in the data. For instance, we will generate a nomogram based on 6 features (Age, gender, race, histological_type, sample_type, PI). Here, we will provide data containing all the features (Samples in rows and features in columns) (e.g. Train_Data_Nomogram_input.txt) and a list of features (feature_list_for_Nomogram.txt) based on which we want to generate a nomogram.  Further, we also need to provide surv_time (name of column containing survival time in months, e.g. OS_month) and surv_event (name of column containing survival event information, e.g. OS) information in the data.
+
 
 ```{r setup}
 #Create Nomogram based on Key features
-SurvPredPipe::Nomogram_generate_f(data="Train_Data_Nomogram_input.txt",  Feature_List="feature_list_for_Nomogram.txt")
+SurvPredPipe::Nomogram_generate_f(data="Train_Data_Nomogram_input.txt",  Feature_List="feature_list_for_Nomogram.txt", surv_time="OS_month", surv_event="OS")
+
 ```
 
 Here, we will get a Nomogram based on features that we provide. This nomogram can predict Risk (Event risk, eg, Death), 1-year, 3-year, 5-year and 10 years survival of patients.
-
