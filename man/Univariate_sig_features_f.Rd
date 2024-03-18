@@ -8,6 +8,8 @@ Univariate_sig_features_f(
   train_data,
   test_data,
   col_num,
+  surv_time,
+  surv_event,
   output_univariate_train,
   output_univariate_test
 )
@@ -17,13 +19,13 @@ Univariate_sig_features_f(
 
 \item{col_num}{:args3 - column number in data at where clinical info ends}
 
-\item{output_univariate_train}{\itemize{
-\item name of output to store univariate selected features for training data
-}}
+\item{surv_time}{:arg4 - name of column which contain survival time (in days) information}
 
-\item{output_univariate_test}{\itemize{
-\item name of output to store univariate selected features for test data
-}}
+\item{surv_event}{:arg5 - name of column which contain survival eventinformation}
+
+\item{output_univariate_train}{:args6- name of output to store univariate selected features for training data}
+
+\item{output_univariate_test}{:args7- name of output to store univariate selected features for test data}
 
 \item{test_data_data}{:args2 - training data (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns)}
 }
@@ -31,6 +33,6 @@ Univariate_sig_features_f(
 This function selects significant features (p-value <0.05)s based on median expression values of features using Univariate Survival analysis.
 }
 \examples{
-SurvPredPipe::Univariate_sig_features_f(train_data="Train_Norm_data.txt", test_data="Test_Norm_data.txt", col_num=21, output_univariate_train="Train_Uni_sig_data.txt", output_univariate_test="Test_Uni_sig_data.txt") 
-Usage: Univariate_sig_features_f(train_data, test_data, col_num, output_univariate_train, output_univariate_test)
+SurvPredPipe::Univariate_sig_features_f(train_data="Train_Norm_data.txt", test_data="Test_Norm_data.txt", col_num=21, surv_time="OS_month" , surv_event="OS" ,output_univariate_train="Train_Uni_sig_data.txt", output_univariate_test="Test_Uni_sig_data.txt") 
+Usage: Univariate_sig_features_f(train_data, test_data, col_num, surv_time, surv_event, output_univariate_train, output_univariate_test)
 }

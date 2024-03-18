@@ -4,39 +4,44 @@
 #' @param test_data_data :args2 - training data (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns)
 #' @param  nfolds : args3 - Number of folds for cross in cvglmnet model to select top features
 #' @param col_num :args4 - column number in data at where clinical info ends
-#' @param train_PI_data :args5 - name of output file containing LASSO selected genes and PI score data for training data
-#' @param test_PI_data :args6 - name of output file containing LASSO selected genes and PI score data for test data
+#' @param surv_time :arg5 - name of column which contain survival time (in days) information
+#' @param surv_event :arg6 - name of column which contain survival eventinformation
+#' @param train_PI_data :args7 - name of output file containing LASSO selected genes and PI score data for training data
+#' @param test_PI_data :args8 - name of output file containing LASSO selected genes and PI score data for test data
 
 #' @examples
-#' SurvPredPipe::Lasso_PI_scores_f(train_data="Train_Norm_data.txt",test_data="Test_Norm_data.txt", nfolds=5, col_num=21, train_PI_data="Train_PI_data.txt", test_PI_data="Test_PI_data.txt" )
-#' Usage: Lasso_PI_scores_f(train_data, test_data, nfolds, col_num, train_PI_data, test_PI_data)
+#' SurvPredPipe::Lasso_PI_scores_f(train_data="Train_Norm_data.txt",test_data="Test_Norm_data.txt", nfolds=5, col_num=21, surv_time="OS_month", surv_event="OS", train_PI_data="Train_PI_data.txt", test_PI_data="Test_PI_data.txt" )
+#' Usage: Lasso_PI_scores_f(train_data, test_data, nfolds, col_num, surv_time, surv_event, train_PI_data, test_PI_data)
 #' @export
 
 
 
-
-Lasso_PI_scores_f <- function(train_data, test_data, nfolds, col_num, train_PI_data, test_PI_data) {
+Lasso_PI_scores_f <- function(train_data, test_data, nfolds, col_num, surv_time, surv_event, train_PI_data, test_PI_data) {
   
   # Check if any input variable is empty
-  if (length(train_data) == 0 ||  length(test_data) == 0|| length(nfolds) == 0 ||length(col_num) == 0) {
+  if (length(train_data) == 0 ||  length(test_data) == 0|| length(nfolds) == 0 ||length(col_num) == 0 ||length(surv_time) == 0 ||length(surv_event) == 0 ||length(train_PI_data) == 0 ||length(test_PI_data) == 0 ) {
     stop("Error: Empty input variable detected.")
   }
   
   # Check if any input variable is missing
-  if (any(is.na(train_data)) || any(is.na(test_data)) || any(is.na(nfolds)) || any(is.na(col_num))) {
+  if (any(is.na(train_data)) || any(is.na(test_data)) || any(is.na(nfolds)) || any(is.na(col_num)) || any(is.na(surv_time)) || any(is.na(surv_event)) || any(is.na(train_PI_data)) || any(is.na(test_PI_data))    ) {
     stop("Error: Missing values in input variables.")
   }
   
-  
 
 #load data
-#tr_data1 <- train_data
-#te_data1 <- test_data
-
 tr_data1 <- read.table(train_data, header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
 te_data1 <- read.table(test_data, header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
 
 
+# rename survival time and event column name
+colnames(tr_data1)[colnames(tr_data1) == surv_time] <- "OS_month"
+colnames(tr_data1)[colnames(tr_data1) == surv_event] <- "OS"
+
+
+# rename survival time and event column name
+colnames(te_data1)[colnames(te_data1) == surv_time] <- "OS_month"
+colnames(te_data1)[colnames(te_data1) == surv_event] <- "OS"
 
 ########################################### LASSO COX ##########################################
 surv_object <- Surv(time = tr_data1$OS_month, event = tr_data1$OS)
@@ -56,7 +61,6 @@ cvfit1 <- cv.glmnet(
 lambda_min <- cvfit1$lambda.min
 lambda_min
 
-plot(cvfit1)
 
 est.coef = coef(cvfit1, s = cvfit1$lambda.min) # returns the p length coefficient vector
 head(est.coef)
@@ -83,6 +87,11 @@ jpeg(file="Train_Cox_Lasso_Regression_lamda_plot.jpeg", units="in", width=10, he
 plot(cvfit1)
 dev.off()
 
+
+  
+svg(file="Train_Cox_Lasso_Regression_lamda_plot.svg")
+plot(cvfit1) 
+dev.off()
 ################## Create PI Index for training data #######################
 
 sel_features2 <- read.table("Train_Lasso_key_variables.txt",header =TRUE, sep = "\t", row.names=1, check.names = FALSE)

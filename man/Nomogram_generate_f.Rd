@@ -5,16 +5,20 @@
 \title{This function will generate Nomogram based on User Selected Clinical and other features (e.g. Here we are using PI (Prognostic Index) Score) to Predict Risk (Death Risk), 1 -year, 3- years, 5- years, and 10 years survival probability of the patients
 #'@param data :args1 - data containing all Clinical features and other features (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns). This data must contain survival information (OS column for - Event and survival time as OS_month, Note: Column name- OS, OS_month )}
 \usage{
-Nomogram_generate_f(data, Feature_List)
+Nomogram_generate_f(data, Feature_List, surv_time, surv_event)
 }
 \arguments{
 \item{Feature_List}{:args2 -   A list of feature based on which user want to create nomogram for data}
+
+\item{surv_time}{:arg3 - name of column which contain survival time (in days) information}
+
+\item{surv_event}{:arg4 - name of column which contain survival eventinformation}
 }
 \description{
 This function will generate Nomogram based on User Selected Clinical and other features (e.g. Here we are using PI (Prognostic Index) Score) to Predict Risk (Death Risk), 1 -year, 3- years, 5- years, and 10 years survival probability of the patients
 #'@param data :args1 - data containing all Clinical features and other features (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns). This data must contain survival information (OS column for - Event and survival time as OS_month, Note: Column name- OS, OS_month )
 }
 \examples{
-Nomogram_generate_f(data="Train_Data_Nomogram_input.txt",  Feature_List="feature_list_for_Nomogram.txt")
-Usage: Nomogram_generate_f(data,  Feature_List)
+Nomogram_generate_f(data="Train_Data_Nomogram_input.txt",  Feature_List="feature_list_for_Nomogram.txt", surv_time="OS_month", surv_event="OS")
+Usage: Nomogram_generate_f(data,  Feature_List, surv_time, surv_event)
 }

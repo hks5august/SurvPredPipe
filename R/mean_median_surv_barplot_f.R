@@ -34,6 +34,10 @@ jpeg(file="Barplot_Mean_median_survival_all_patients.jpeg", units="in", width=10
 print(Barplot_mean_med_all_pat_surv)
 dev.off()
 
+svg(file="Barplot_Mean_median_survival_all_patients.svg")
+print(Barplot_mean_med_all_pat_surv)
+dev.off()
+
 ### Highlight Selected patient
 #Selected_patient<- as.character("TCGA-DU-A6S3-01")
 Selected_patient<- selected_sample
@@ -68,6 +72,10 @@ Barplot_with_highlighted_selected_pat<- ggplot(mean_median_surv_d_m, aes(x = IDs
 Barplot_with_highlighted_selected_pat
 
 jpeg(file="Barplot_for_Mean_median_survival_all_patients_with_highlighted_pat.jpeg", units="in", width=10, height=10, res=300)
+print(Barplot_with_highlighted_selected_pat)
+dev.off()
+
+svg(file="Barplot_for_Mean_median_survival_all_patients_with_highlighted_pat.svg")
 print(Barplot_with_highlighted_selected_pat)
 dev.off()
 

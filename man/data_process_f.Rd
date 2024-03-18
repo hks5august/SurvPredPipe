@@ -4,11 +4,9 @@
 \alias{data_process_f}
 \title{This function converting OS time (in days) into months and removing samples where OS time information is missing. Note: In the Example data OS time labelled is "OS.time" and OS event labelled as "OS"}
 \usage{
-data_process_f(data, col_num, output)
+data_process_f(data, col_num, surv_time, output)
 }
 \arguments{
-\item{output}{: arg3 - name of output file, in chich user want to store data}
-
 \item{data:args1}{\itemize{
 \item data (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns)
 }}
@@ -16,11 +14,19 @@ data_process_f(data, col_num, output)
 \item{col_num:args2}{\itemize{
 \item column number in data at where clinical info ends
 }}
+
+\item{surv_time:arg3}{\itemize{
+\item name of column which contain survival time (in days) information
+}}
+
+\item{output:arg4}{\itemize{
+\item name of output file, in chich user want to store data
+}}
 }
 \description{
 This function converting OS time (in days) into months and removing samples where OS time information is missing. Note: In the Example data OS time labelled is "OS.time" and OS event labelled as "OS"
 }
 \examples{
-SurvPredPipe::data_process_f(data="TCGA-LGG_protein_coding_FPKM_data_with_clin_data.txt",col_num=20, output="New_data.txt") 
-Usage: data_process_f(data,  col_num, output)
+SurvPredPipe::data_process_f(data="TCGA-LGG_protein_coding_FPKM_data_with_clin_data.txt",col_num=20, surv_time= "OS.time",output="New_data.txt") 
+Usage: data_process_f(data,  col_num,surv_time, output)
 }

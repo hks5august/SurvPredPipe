@@ -3,26 +3,28 @@
 #' @param train_data :args1 - training data (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns)
 #' @param test_data_data :args2 - training data (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns)
 #' @param col_num :args3 - column number in data at where clinical info ends
-#' @param output_univariate_train - name of output to store univariate selected features for training data
-#' @param output_univariate_test - name of output to store univariate selected features for test data
+#' @param surv_time :arg4 - name of column which contain survival time (in days) information
+#' @param surv_event :arg5 - name of column which contain survival eventinformation
+#' @param output_univariate_train :args6- name of output to store univariate selected features for training data
+#' @param output_univariate_test :args7- name of output to store univariate selected features for test data
 #' @examples
-#' SurvPredPipe::Univariate_sig_features_f(train_data="Train_Norm_data.txt", test_data="Test_Norm_data.txt", col_num=21, output_univariate_train="Train_Uni_sig_data.txt", output_univariate_test="Test_Uni_sig_data.txt") 
-#' Usage: Univariate_sig_features_f(train_data, test_data, col_num, output_univariate_train, output_univariate_test)
+#' SurvPredPipe::Univariate_sig_features_f(train_data="Train_Norm_data.txt", test_data="Test_Norm_data.txt", col_num=21, surv_time="OS_month" , surv_event="OS" ,output_univariate_train="Train_Uni_sig_data.txt", output_univariate_test="Test_Uni_sig_data.txt") 
+#' Usage: Univariate_sig_features_f(train_data, test_data, col_num, surv_time, surv_event, output_univariate_train, output_univariate_test)
 #' @export
 
 
 
 #setwd("/Users/kaurh8/Documents/GDC_TCGA_Biolinks/GDC_All_samples_Data/updated_folder2/LGG")
-Univariate_sig_features_f <- function(train_data, test_data, col_num, output_univariate_train, output_univariate_test)  {
+Univariate_sig_features_f <- function(train_data, test_data, col_num,surv_time, surv_event,  output_univariate_train, output_univariate_test)  {
 
   
   # Check if any input variable is empty
-  if (length(train_data) == 0 ||  length(test_data) == 0|| length(col_num) == 0) {
+  if (length(train_data) == 0 ||  length(test_data) == 0|| length(col_num) == 0 ||length(surv_time) == 0 ||length(surv_event) == 0 ||length(output_univariate_train) == 0 ||length(output_univariate_test) == 0  ) {
     stop("Error: Empty input variable detected.")
   }
   
   # Check if any input variable is missing
-  if (any(is.na(train_data)) || any(is.na(test_data))  || any(is.na(col_num))) {
+  if (any(is.na(train_data)) || any(is.na(test_data))  || any(is.na(col_num))  || any(is.na(surv_time)) || any(is.na(surv_event)) || any(is.na(output_univariate_train)) || any(is.na(output_univariate_test)) ) {
     stop("Error: Missing values in input variables.")
   }
 #set.seed(7)
@@ -30,12 +32,20 @@ Univariate_sig_features_f <- function(train_data, test_data, col_num, output_uni
 
 
 #load data
-#tr_data1 <- read.table("tr_data1.txt", header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
-#te_data1 <- read.table("te_data1.txt", header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
 tr_data1 <- read.table(train_data, header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
 te_data1 <- read.table(test_data, header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
 
-head(tr_data1[1:21],2 )
+
+# rename survival time and event column name
+colnames(tr_data1)[colnames(tr_data1) == surv_time] <- "OS_month"
+colnames(tr_data1)[colnames(tr_data1) == surv_event] <- "OS"
+
+
+
+# rename survival time and event column name
+colnames(te_data1)[colnames(te_data1) == surv_time] <- "OS_month"
+colnames(te_data1)[colnames(te_data1) == surv_event] <- "OS"
+
 
 ###################### Create Survival Object #####################
 surv_object <- Surv(time = tr_data1$OS_month, event = tr_data1$OS)

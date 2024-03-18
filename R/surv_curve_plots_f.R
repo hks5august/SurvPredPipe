@@ -34,9 +34,9 @@ jpeg(file="survival_curves_all_patients_with_PI_clin.jpeg", units="in", width=10
 print(Surv_curv_plot_all_pat)
 dev.off()
  
-
-
-head(survCurves_m)
+svg(file="survival_curves_all_patients_with_PI_clin.svg")
+print(Surv_curv_plot_all_pat)
+dev.off()
 
 #Selected_patient<- as.character("TCGA-DU-A6S3-01")
 Selected_patient<- selected_sample
@@ -72,7 +72,9 @@ jpeg(file="survival_curves_for_all_patients_with_highlighting_one_pat_PI_clin.jp
 print(Surv_curv_plot_all_pats_with_highlighting_one_pat )
 dev.off()
 
-
+svg(file="survival_curves_for_all_patients_with_highlighting_one_pat_PI_clin.svg")
+print(Surv_curv_plot_all_pats_with_highlighting_one_pat )
+dev.off()
 
 }
 

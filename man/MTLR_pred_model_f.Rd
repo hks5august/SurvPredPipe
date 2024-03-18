@@ -11,7 +11,10 @@ MTLR_pred_model_f(
   test_clin_data,
   Model_type,
   train_features_data,
-  test_features_data
+  test_features_data,
+  Clin_Feature_List,
+  surv_time,
+  surv_event
 )
 }
 \arguments{
@@ -21,6 +24,12 @@ MTLR_pred_model_f(
 
 \item{test_features_data}{:args5 - Training data with selected features only (Significant Univariate/LASSO PI score)}
 
+\item{Clin_Feature_List}{:args6 - List of key clinical features which contain non-unique values (e.g. Key_Clin_feature_list.txt, Key_PI_list.txt Key_Clin_features_with_PI_list.txt, Key_univariate_features_list.txt, Key_univariate_features_with_Clin_list.txt)}
+
+\item{surv_time}{:arg7 - name of column which contain survival time (in days) information}
+
+\item{surv_event}{:arg8 - name of column which contain survival eventinformation}
+
 \item{Model_type:}{args3 - Prediction Model type : 1 - Clinical features, 2 - PI score features, 3-  PI score + Clinical features ; 4 - Univariate features, 5 -  Univariate features + Clinical features}
 }
 \description{
@@ -29,6 +38,6 @@ Further, this model will predict the survival of test data in terms of survival 
 #'@param train_clin_data :args1 - training data with Clin features (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns)
 }
 \examples{
-SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "TestClin.txt", Model_type = 2, train_features_data = "Train_PI_data.txt", test_features_data = "Test_PI_data.txt" ) 
-Usage: MTLR_pred_model_f(train_clin_data, test_clin_data, Model_type, train_features_data, test_features_data )
+SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "TestClin.txt", Model_type = 2, train_features_data = "Train_PI_data.txt", test_features_data = "Test_PI_data.txt",  Clin_Feature_List="Key_PI_list.txt" , surv_time="OS_month", surv_event="OS" ) 
+Usage: MTLR_pred_model_f(train_clin_data, test_clin_data, Model_type, train_features_data, test_features_data , Clin_Feature_List ,surv_time, surv_event)
 }

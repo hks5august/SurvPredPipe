@@ -9,6 +9,8 @@ Lasso_PI_scores_f(
   test_data,
   nfolds,
   col_num,
+  surv_time,
+  surv_event,
   train_PI_data,
   test_PI_data
 )
@@ -18,9 +20,13 @@ Lasso_PI_scores_f(
 
 \item{col_num}{:args4 - column number in data at where clinical info ends}
 
-\item{train_PI_data}{:args5 - name of output file containing LASSO selected genes and PI score data for training data}
+\item{surv_time}{:arg5 - name of column which contain survival time (in days) information}
 
-\item{test_PI_data}{:args6 - name of output file containing LASSO selected genes and PI score data for test data}
+\item{surv_event}{:arg6 - name of column which contain survival eventinformation}
+
+\item{train_PI_data}{:args7 - name of output file containing LASSO selected genes and PI score data for training data}
+
+\item{test_PI_data}{:args8 - name of output file containing LASSO selected genes and PI score data for test data}
 
 \item{test_data_data}{:args2 - training data (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns)}
 }
@@ -28,6 +34,6 @@ Lasso_PI_scores_f(
 #' @param train_data :args1 - training data (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns)
 }
 \examples{
-SurvPredPipe::Lasso_PI_scores_f(train_data="Train_Norm_data.txt",test_data="Test_Norm_data.txt", nfolds=5, col_num=21, train_PI_data="Train_PI_data.txt", test_PI_data="Test_PI_data.txt" )
-Usage: Lasso_PI_scores_f(train_data, test_data, nfolds, col_num, train_PI_data, test_PI_data)
+SurvPredPipe::Lasso_PI_scores_f(train_data="Train_Norm_data.txt",test_data="Test_Norm_data.txt", nfolds=5, col_num=21, surv_time="OS_month", surv_event="OS", train_PI_data="Train_PI_data.txt", test_PI_data="Test_PI_data.txt" )
+Usage: Lasso_PI_scores_f(train_data, test_data, nfolds, col_num, surv_time, surv_event, train_PI_data, test_PI_data)
 }

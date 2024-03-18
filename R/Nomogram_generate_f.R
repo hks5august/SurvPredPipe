@@ -2,22 +2,24 @@
 #' This function will generate Nomogram based on User Selected Clinical and other features (e.g. Here we are using PI (Prognostic Index) Score) to Predict Risk (Death Risk), 1 -year, 3- years, 5- years, and 10 years survival probability of the patients
 #' #'@param data :args1 - data containing all Clinical features and other features (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns). This data must contain survival information (OS column for - Event and survival time as OS_month, Note: Column name- OS, OS_month )
 #' @param  Feature_List :args2 -   A list of feature based on which user want to create nomogram for data
+#' @param surv_time :arg3 - name of column which contain survival time (in days) information
+#' @param surv_event :arg4 - name of column which contain survival eventinformation
 #' @examples
-#' Nomogram_generate_f(data="Train_Data_Nomogram_input.txt",  Feature_List="feature_list_for_Nomogram.txt")
-#' Usage: Nomogram_generate_f(data,  Feature_List)
+#' Nomogram_generate_f(data="Train_Data_Nomogram_input.txt",  Feature_List="feature_list_for_Nomogram.txt", surv_time="OS_month", surv_event="OS")
+#' Usage: Nomogram_generate_f(data,  Feature_List, surv_time, surv_event)
 #' @export
 #'
 
-Nomogram_generate_f <- function(data,  Feature_List)  {
+Nomogram_generate_f <- function(data,  Feature_List, surv_time, surv_event)  {
   #set.seed(7)
   
   # Check if any input variable is empty
-  if (length(data) == 0 ||  length(Feature_List) == 0) {
+  if (length(data) == 0 ||  length(Feature_List) == 0 ||  length(surv_time) == 0||  length(surv_event) == 0 ) {
     stop("Error: Empty input variable detected.")
   }
   
   # Check if any input variable is missing
-  if (any(is.na(data))  || any(is.na(Feature_List))) {
+  if (any(is.na(data))  || any(is.na(Feature_List))  || any(is.na(surv_time)) || any(is.na(surv_event))  ) {
     stop("Error: Missing values in input variables.")
   }
   
@@ -25,6 +27,11 @@ Nomogram_generate_f <- function(data,  Feature_List)  {
 #load data
 #data <- read.table("Train_Data_Nomogram_input.txt", header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
 data <- read.table(data, header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
+
+ # rename survival time and event column name
+ colnames(data)[colnames(data) == surv_time] <- "OS_month"
+ colnames(data)[colnames(data) == surv_event] <- "OS"
+
 
 # Load user defined a list of features for which user want to develop nomogram
 #ftr_list <- read.table("feature_list_for_Nomogram.txt", header = TRUE, sep = "\t",check.names = FALSE)
@@ -75,8 +82,8 @@ nom_cox1<-nomogram(cox1,fun = list(risk, surv_1,surv_2,surv_3, surv_4),lp = F,
 
 jpeg("Nomogram.jpg", units="in", width=15, height=10, res=350)
 plot(nom_cox1, xfrac = .2 ,
-     font.size = 0.6,
-     cex.axis = 0.7,
+     font.size = 0.5,
+     cex.axis = 0.5,
      force.label = TRUE,
      tcl = 0.4,
      lmgp = 0.35,
@@ -86,6 +93,19 @@ plot(nom_cox1, xfrac = .2 ,
 
 dev.off()
 
+
+
+svg(file="Nomogram.svg")
+plot(nom_cox1, xfrac = .2 ,
+     font.size = 0.35,
+     cex.axis = 0.35,
+     force.label = TRUE,
+     tcl = 0.35,
+     lmgp = 0.35,
+     vnames="labels",
+     col.grid=gray(c(0.85,0.95))
+)
+dev.off()
 
 
 # Calculate c-index for nomogram

@@ -8,41 +8,39 @@
 #' @param train_features_data :args4 - Training data with selected features only (Significant Univariate/LASSO PI score)
 #' @param test_features_data :args5 - Training data with selected features only (Significant Univariate/LASSO PI score)
 #' @param Clin_Feature_List :args6 - List of key clinical features which contain non-unique values (e.g. Key_Clin_feature_list.txt, Key_PI_list.txt Key_Clin_features_with_PI_list.txt, Key_univariate_features_list.txt, Key_univariate_features_with_Clin_list.txt)
-#' 
+#' @param surv_time :arg7 - name of column which contain survival time (in days) information
+#' @param surv_event :arg8 - name of column which contain survival eventinformation
 #' @examples
-#' SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "TestClin.txt", Model_type = 2, train_features_data = "Train_PI_data.txt", test_features_data = "Test_PI_data.txt" ) 
-#' Usage: MTLR_pred_model_f(train_clin_data, test_clin_data, Model_type, train_features_data, test_features_data )
+#' SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "TestClin.txt", Model_type = 2, train_features_data = "Train_PI_data.txt", test_features_data = "Test_PI_data.txt",  Clin_Feature_List="Key_PI_list.txt" , surv_time="OS_month", surv_event="OS" ) 
+#' Usage: MTLR_pred_model_f(train_clin_data, test_clin_data, Model_type, train_features_data, test_features_data , Clin_Feature_List ,surv_time, surv_event)
 #' @export
 
 
-MTLR_pred_model_f <- function(train_clin_data, test_clin_data, Model_type, train_features_data, test_features_data, Clin_Feature_List )  {
+MTLR_pred_model_f <- function(train_clin_data, test_clin_data, Model_type, train_features_data, test_features_data, Clin_Feature_List ,surv_time, surv_event )  {
 #set.seed(7)
 
   # Check if any input variable is empty
-  if (length(train_clin_data) == 0 ||  length(test_clin_data) == 0 || length(Model_type) == 0   || length(train_features_data) == 0 ||length(test_features_data ) == 0 ||length(Clin_Feature_List ) == 0) {
+  if (length(train_clin_data) == 0 ||  length(test_clin_data) == 0 || length(Model_type) == 0   || length(train_features_data) == 0 ||length(test_features_data ) == 0 ||length(Clin_Feature_List ) == 0 ||length(surv_time) == 0 ||length(surv_event) == 0) {
     stop("Error: Empty input variable detected.")
   }
   
   # Check if any input variable is missing
-  if (any(is.na(train_clin_data)) || any(is.na(test_clin_data)) || any(is.na(Model_type))  || any(is.na(train_features_data)) || any(is.na(test_features_data )) || any(is.na(Clin_Feature_List))) {
+  if (any(is.na(train_clin_data)) || any(is.na(test_clin_data)) || any(is.na(Model_type))  || any(is.na(train_features_data)) || any(is.na(test_features_data )) || any(is.na(Clin_Feature_List)) || any(is.na(surv_time)) || any(is.na(surv_event))  ) {
     stop("Error: Missing values in input variables.")
   }
   
   
   #load data
- # tr_clin1 <- read.table("Train_Clin.txt", header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
-  #te_clin1 <- read.table("Test_Clin.txt", header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
   
   tr_clin1 <- read.table(train_clin_data, header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
   te_clin1 <- read.table(test_clin_data, header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
   
-  
-  #train_features_data1 <- read.table("Train_PI_data.txt", header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
-  #test_features_data1 <- read.table("Test_PI_data.txt", header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
-  
-  
-  #train_features_data1 <- read.table("Train_Uni_sig_data.txt", header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
-  #test_features_data1 <- read.table("Test_Uni_sig_data.txt", header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
+  # rename survival time and event column name
+ colnames(tr_clin1)[colnames(tr_clin1) == surv_time] <- "OS_month"
+ colnames(tr_clin1)[colnames(tr_clin1) == surv_event] <- "OS"
+ 
+ colnames(te_clin1)[colnames(te_clin1) == surv_time] <- "OS_month"
+ colnames(te_clin1)[colnames(te_clin1) == surv_event] <- "OS"
   
   
   train_features_data1 <- read.table(train_features_data, header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
@@ -54,12 +52,6 @@ MTLR_pred_model_f <- function(train_clin_data, test_clin_data, Model_type, train
   te_data2 <- cbind(te_clin1, test_features_data1 )  
   
   # Load user defined a list of features forclinical data
-  #ftr_list <- read.table("Key_Clin_feature_list.txt", header = TRUE, sep = "\t",check.names = FALSE)
-  #ftr_list <- read.table("Key_PI_list.txt", header = TRUE, sep = "\t",check.names = FALSE)
-  #ftr_list <- read.table("Key_Clin_features_with_PI_list.txt", header = TRUE, sep = "\t",check.names = FALSE)
-
-  #ftr_list <- read.table("Key_univariate_features_list.txt", header = TRUE, sep = "\t",check.names = FALSE)
-  #ftr_list <- read.table("Key_univariate_features_with_Clin_list.txt", header = TRUE, sep = "\t",check.names = FALSE)
   ftr_list <- read.table(Clin_Feature_List, header = TRUE, sep = "\t",check.names = FALSE)
   
     ##############
