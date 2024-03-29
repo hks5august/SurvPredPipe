@@ -13,9 +13,10 @@ remotes::install_github("hks5august/SurvPredPipe", local = TRUE)
 library("SurvPredPipe") 
 ```
 
-SurvPredPipe_Manual.pdf file explains description of each function, variable, installation detail, and workflow of the pipeline with an example.
+SurvPredPipe_Package.pdf file explains description, installation detail, description of each function, variable.
+SurvPredPipe__workflow.pdf file explains workflow (Step by Step) of SurvPredPipe package with an example for user to follow.
 
-SurvPredPipe_workflow.Rmd  file explains workflow with an example for user to follow.
+SurvPredPipe_workflow.Rmd file explains workflow with an example for user to follow.
 
 The "R" folder contains Rscript for all the functions
 
