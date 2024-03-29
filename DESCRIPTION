@@ -5,7 +5,7 @@ Authors@R:
     person("Harpreet", "Kaur", "harpreet.kaur2@nih.gov", "hks04180@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "https://orcid.org/0000-0003-0421-8341"))
 Description: This package is about the pipeline for the prediction Survival Probability of Cancer Patients. It performs various steps: Data Processing, Split data into training and test subset, Data Normalization, Select Significant features based on Univariate survival,  Generate LASSO PI Score, Develop Prediction model for survival probability based on different features  and draw survival curve based on predicted survival probability values and barplots for predicted mean and median survival time of patients..
-License: MIT + file LICENSE
+License: GPL-2 | file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
