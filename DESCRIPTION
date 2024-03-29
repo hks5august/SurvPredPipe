@@ -1,6 +1,6 @@
 Package: SurvPredPipe
 Title: R-Package for the Pipeline to Predict Survival Probability of Cancer Patients
-Version: 0.0.0.9000
+Version: 1.0
 Authors@R: 
     person("Harpreet", "Kaur", "harpreet.kaur2@nih.gov", "hks04180@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "https://orcid.org/0000-0003-0421-8341"))
