@@ -4,7 +4,9 @@
 #' @param col_num:args2 - column number in data at where clinical info ends 
 #' @param surv_time:arg3 - name of column which contain survival time (in days) information
 #' @param output:arg4 - name of output file, in chich user want to store data
- #' @examples
+#' @import MASS
+#' @import dplyr
+#' @examples
 #' SurvPredPipe::data_process_f(data="TCGA-LGG_protein_coding_FPKM_data_with_clin_data.txt",col_num=20, surv_time= "OS.time",output="New_data.txt") 
 #' Usage: data_process_f(data,  col_num,surv_time, output)
 #' @export
@@ -48,7 +50,6 @@ data_process_f <- function(data,  col_num, surv_time, output) {
   data_clin$OS_month <- round(column_data /30.417, 0)
 
   
-  
   ##Extract Expression data
   data_exp <- data[col_num:ncol(data)]
   
@@ -56,13 +57,10 @@ data_process_f <- function(data,  col_num, surv_time, output) {
   # Combine clinical and Expression data
   data1 <- cbind(data_clin , data_exp)
   
-  dim(data1)
   
   #remove samples with missing OS data or negative OS time
  #data2  <- subset(data1, OS!="NA")
   data2 <- subset(data1, OS_month > 0)
-  dim(data2)
-  
   
   
   ###################################### Write into files ########################################

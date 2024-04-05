@@ -1,26 +1,29 @@
 #' This function generate individual survival curve for patients. Moreover, user can also highlight one specific sample by providing sample IDs
 #' @param Surv_curve_data :args1 - Survival probabilty data for survival curve of patients 
 #' @param selected_sample:args2 - ID of a specific sample user wants to highlights on the plot against the background of curves of other samples 
+#' @import MASS
+#' @import dplyr
+#' @import reshape2
+#' @import ggplot2
 #' @examples
-#' SurvPredPipe::surv_curve_plots_f(Surv_curve_data="survCurves_data.txt", selected_sample="TCGA-DH-5140-01")
+#' surv_curve_plots_f(Surv_curve_data="../inst/extdata/survCurves_data.txt", selected_sample="TCGA-TQ-A8XE-01") 
 #' usgae: surv_curve_plots_f(Surv_curve_data, selected_sample)
 #' @export
 
+
 surv_curve_plots_f <- function(Surv_curve_data, selected_sample )   {
 
-
-#survCurves_data <- read.table("survCurves2_data.txt", header = TRUE, sep = "\t",  check.names = FALSE)
+#load data
 survCurves_data <- read.table(Surv_curve_data, header = TRUE, sep = "\t",  check.names = FALSE)
 
 
 #reshape the data in the form of long matrix
 survCurves_m <- melt(survCurves_data , id='time_point')
 
-#head(survCurves_m)
-
+# add column names
 colnames(survCurves_m) <- c("Time", "Patient", "Value")
-head(survCurves_m)
 
+#create survival curve plot for all samples
 Surv_curv_plot_all_pat <- ggplot(survCurves_m, aes(x = Time, y=Value, group = Patient, color=Patient)) +
   geom_line() + labs(x="Time in Months",y="Survival Probability")+ 
   ggtitle("Survival Curves for Patients")  +
@@ -28,19 +31,21 @@ Surv_curv_plot_all_pat <- ggplot(survCurves_m, aes(x = Time, y=Value, group = Pa
   theme( legend.position="bottom", legend.box = "vertical", legend.title = element_text(), legend.key = element_blank(),
          legend.key.size = unit(3, 'mm'),legend.text = element_text(size=4))  + guides(color = guide_legend(title = "Patients")) 
 
-#Surv_curv_plot_all_pat
+#Save into JPEG file
 
 jpeg(file="survival_curves_all_patients_with_PI_clin.jpeg", units="in", width=10, height=10, res=300)
 print(Surv_curv_plot_all_pat)
 dev.off()
  
+#Save into SVG file
 svg(file="survival_curves_all_patients_with_PI_clin.svg")
 print(Surv_curv_plot_all_pat)
 dev.off()
 
-#Selected_patient<- as.character("TCGA-DU-A6S3-01")
+#selected patient ID
 Selected_patient<- selected_sample
 
+#create survival curve plot for selected patient
 Surv_curv_plot_all_pats_with_highlighting_one_pat <- ggplot(survCurves_m, aes(x = Time, y = Value, linetype = Patient, color = Selected_patient)) +
   scale_y_continuous(breaks = seq(0, 1, 0.1)) +
   ggtitle("Survival Curves for Patients with Highlightited Patient") +
@@ -66,12 +71,12 @@ Surv_curv_plot_all_pats_with_highlighting_one_pat <- ggplot(survCurves_m, aes(x 
   
   guides(linetype = guide_legend(title = "Patients"), color = guide_legend(title = "Selected Patient"))
 
-Surv_curv_plot_all_pats_with_highlighting_one_pat 
-
+#Save into JPEG file
 jpeg(file="survival_curves_for_all_patients_with_highlighting_one_pat_PI_clin.jpeg", units="in", width=10, height=10, res=300)
 print(Surv_curv_plot_all_pats_with_highlighting_one_pat )
 dev.off()
 
+#Save into SVG file
 svg(file="survival_curves_for_all_patients_with_highlighting_one_pat_PI_clin.svg")
 print(Surv_curv_plot_all_pats_with_highlighting_one_pat )
 dev.off()

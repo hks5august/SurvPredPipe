@@ -7,12 +7,14 @@
 #' @param test_clin_data: args5 - name of test data output which stores only clinical information 
 #' @param train_Normalized_data_clin_data: args6 -  output file name - outfile file containing training clinical data and normalized data  (which is log-scaled followed by quantile normalized data).
 #' @param test_Normalized_data_clin_data: args7- output filename - outfile file containing test clinical data and normalized data  (which is log-scaled followed by quantile normalized data).
+#' @import MASS
+#' @import dplyr
+#' @import  preprocessCore
 #' @examples
-#' SurvPredPipe::train_test_normalization_f(train_data="train_FPKM.txt",test_data="test_FPKM.txt", col_num=21, train_clin_data="Train_Clin.txt", test_clin_data="TestClin.txt", train_Normalized_data_clin_data="Train_Norm_data.txt", test_Normalized_data_clin_data="Test_Norm_data.txt")
+#' train_test_normalization_f(train_data = "../inst/extdata/train_FPKM.txt",test_data = "../inst/extdata/test_FPKM.txt",col_num = 21, train_clin_data = "Train_Clin.txt", test_clin_data = "Test_Clin.txt", train_Normalized_data_clin_data = "Train_Norm_data.txt", test_Normalized_data_clin_data = "Test_Norm_data.txt")
 #' Usage: train_test_normalization_f(train_data,  test_data, col_num, train_clin_data, test_clin_data, train_Normalized_data_clin_data, test_Normalized_data_clin_data)
 
 #' @export
-#setwd: /Users/kaurh8/Documents/GDC_TCGA_Biolinks/GDC_All_samples_Data/TCGA-LGG/LGG_Survival_package/Final_package_functions
 
 train_test_normalization_f <- function(train_data,  test_data, col_num, train_clin_data, test_clin_data, train_Normalized_data_clin_data, test_Normalized_data_clin_data) {
   
@@ -28,9 +30,6 @@ train_test_normalization_f <- function(train_data,  test_data, col_num, train_cl
   }
   
   #training and test data contains clinical data in first 21 columns and rest columns repression gene expression values 
-  
- # training <- read.table("Training_set_FPKM_data.txt", header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
-  #testing <- read.table("Test_set_FPKM_data.txt", header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)  
   
   
   training <- read.table(train_data, header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)

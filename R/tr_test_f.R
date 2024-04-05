@@ -4,18 +4,17 @@
 #' @param data: a dataframe where features in the columns and samples must be in rows
 #' @param  fraction, by which user want to split data for training data; e.g. 90% training, so fraction would be 0.9
 #' @param train_data, name of training set that user can provide
-#'  @param test_data, name of test set that user can provide
+#' @param test_data, name of test set that user can provide
 #' @return  training and test data 
-#'
+#' @import MASS
+#' @import dplyr
 #' @examples
-#'SurvPredPipe::tr_test_f(data="New_data.txt",fraction=0.9, train_data="train_FPKM.txt", test_data="test_FPKM.txt") 
+#' tr_test_f(data="../inst/extdata/New_data.txt",fraction=0.9, train_data="train_FPKM.txt",test_data="test_FPKM.txt")
 #'Usage: tr_test_f(data, fraction, train_data, test_data)
 #' @export
 
 
 tr_test_f <- function(data, fraction, train_data, test_data)
-  # tr_test_f <- function(data, 0.8)
-  #  tr_test_f <- function(args[1], args[2])
 {
   
   
@@ -29,14 +28,18 @@ tr_test_f <- function(data, fraction, train_data, test_data)
     stop("Error: Missing values in input variables.")
   }
   
-  #set.seed(7)
+#load data  
+data <- read.table(data, header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
+
+ #define train-test split fraction
+ numberTrain <- floor(nrow(data)* fraction)
   
-  #data <- read.table("GBM.tsv", header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
-  data <- read.table(data, header = TRUE, sep = "\t", row.names = 1, check.names = FALSE)
-  numberTrain <- floor(nrow(data)* fraction)
-  
+ #extract training index
   trInd <- sample(1:nrow(data), numberTrain)
+  
+  #create training data
   training <- data[trInd,]
+  #create test data
   testing <- data[-trInd,]
   
   

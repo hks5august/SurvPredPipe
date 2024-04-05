@@ -4,11 +4,17 @@
 #' @param  Feature_List :args2 -   A list of feature based on which user want to create nomogram for data
 #' @param surv_time :arg3 - name of column which contain survival time (in days) information
 #' @param surv_event :arg4 - name of column which contain survival eventinformation
+#' @import dplyr
+#' @import reshape2
+#' @import ggplot2
+#' @import rms
+#' @import survivalROC
+#' @import SurvMetrics
+#' @import Matrix
 #' @examples
-#' Nomogram_generate_f(data="Train_Data_Nomogram_input.txt",  Feature_List="feature_list_for_Nomogram.txt", surv_time="OS_month", surv_event="OS")
+#' Nomogram_generate_f(data="../inst/extdata/Train_Data_Nomogram_input.txt",  Feature_List="../inst/extdata/feature_list_for_Nomogram.txt", surv_time="OS_month", surv_event="OS")
 #' Usage: Nomogram_generate_f(data,  Feature_List, surv_time, surv_event)
 #' @export
-#'
 
 Nomogram_generate_f <- function(data,  Feature_List, surv_time, surv_event)  {
   #set.seed(7)

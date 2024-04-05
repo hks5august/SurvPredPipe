@@ -1,8 +1,12 @@
 #' This function generate barplots for mean and median survival of patients. Besides, user can also highlight one specific sample by providing sample IDs
 #' @param surv_mean_med_data :args1 - Predicted Mean median survival time data for patients  
 #' @param selected_sample :args2 - ID of the sample for which user want to highlight in the plot
+#' @import MASS
+#' @import dplyr
+#' @import reshape2
+#' @import ggplot2
 #' @examples
-#' SurvPredPipe::mean_median_surv_barplot_f(surv_mean_med_data="mean_median_survival_time_data.txt", selected_sample="TCGA-DH-5140-01")
+#' mean_median_surv_barplot_f(surv_mean_med_data="../inst/extdata/mean_median_survival_time_data.txt", selected_sample="TCGA-TQ-A8XE-01")
 #' usgae: mean_median_surv_barplot_f(surv_mean_med_data, selected_sample)
 #' @export
 #
@@ -13,13 +17,12 @@
 mean_median_surv_barplot_f <- function(surv_mean_med_data, selected_sample)
 {
 
-#mean_median_surv_d <- read.table("mean_median_time_data2.txt", header = TRUE, sep = "\t",  check.names = FALSE)
-
+#load data
 mean_median_surv_d <- read.table(surv_mean_med_data, header = TRUE, sep = "\t",  check.names = FALSE)
 
+#reshape data
 mean_median_surv_d_m <- melt(mean_median_surv_d )
 
-head(mean_median_surv_d_m)
 
 # coloured barplot
 Barplot_mean_med_all_pat_surv <- ggplot(mean_median_surv_d_m, aes(x = IDs, y = value, fill = variable, colour = variable)) + 
@@ -28,12 +31,13 @@ Barplot_mean_med_all_pat_surv <- ggplot(mean_median_surv_d_m, aes(x = IDs, y = v
   ggtitle("Predicted Mean/Median Survival Time of Patients")  +
   labs(x="Patients",y="Predicted Survival time in Months")+ 
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size=6))
-Barplot_mean_med_all_pat_surv
 
+#Save into JPEG file
 jpeg(file="Barplot_Mean_median_survival_all_patients.jpeg", units="in", width=10, height=10, res=300)
 print(Barplot_mean_med_all_pat_surv)
 dev.off()
 
+#Save into SVG file
 svg(file="Barplot_Mean_median_survival_all_patients.svg")
 print(Barplot_mean_med_all_pat_surv)
 dev.off()
@@ -69,12 +73,12 @@ Barplot_with_highlighted_selected_pat<- ggplot(mean_median_surv_d_m, aes(x = IDs
   theme(legend.key = element_blank(), legend.title = element_blank(), legend.position = "top", legend.box = "horizontal") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size=8))
 
-Barplot_with_highlighted_selected_pat
-
+#Save into JPEG file
 jpeg(file="Barplot_for_Mean_median_survival_all_patients_with_highlighted_pat.jpeg", units="in", width=10, height=10, res=300)
 print(Barplot_with_highlighted_selected_pat)
 dev.off()
 
+#Save into SVG file
 svg(file="Barplot_for_Mean_median_survival_all_patients_with_highlighted_pat.svg")
 print(Barplot_with_highlighted_selected_pat)
 dev.off()

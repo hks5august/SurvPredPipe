@@ -7,8 +7,12 @@
 #' @param surv_event :arg5 - name of column which contain survival eventinformation
 #' @param output_univariate_train :args6- name of output to store univariate selected features for training data
 #' @param output_univariate_test :args7- name of output to store univariate selected features for test data
+#' @import dplyr
+#' @import survival
+#' @import survminer
+#' @import ggplot2
 #' @examples
-#' SurvPredPipe::Univariate_sig_features_f(train_data="Train_Norm_data.txt", test_data="Test_Norm_data.txt", col_num=21, surv_time="OS_month" , surv_event="OS" ,output_univariate_train="Train_Uni_sig_data.txt", output_univariate_test="Test_Uni_sig_data.txt") 
+#' Univariate_sig_features_f(train_data="../inst/extdata/Train_Norm_data.txt", test_data="../inst/extdata/Test_Norm_data.txt", col_num=21, surv_time="OS_month" , surv_event="OS" ,output_univariate_train="Train_Uni_sig_data.txt", output_univariate_test="Test_Uni_sig_data.txt") 
 #' Usage: Univariate_sig_features_f(train_data, test_data, col_num, surv_time, surv_event, output_univariate_train, output_univariate_test)
 #' @export
 
@@ -27,7 +31,6 @@ Univariate_sig_features_f <- function(train_data, test_data, col_num,surv_time, 
   if (any(is.na(train_data)) || any(is.na(test_data))  || any(is.na(col_num))  || any(is.na(surv_time)) || any(is.na(surv_event)) || any(is.na(output_univariate_train)) || any(is.na(output_univariate_test)) ) {
     stop("Error: Missing values in input variables.")
   }
-#set.seed(7)
 
 
 
@@ -59,9 +62,11 @@ write.table(cbind("ID","Beta","HR","P-value","GP1","GP2","Hr-Inv-lst","Concordan
             file="./Univariate_Survival_Significant_genes_List.txt",row.names=F,col.names=F,sep = '\t');
 
 
-#for(i in seq(from=21, to=length(tr_data1), by=1))
+#perform univariate survival analysis for each feature based on median expression
 for(i in seq(from=col_num, to=length(tr_data1), by=1))
+
 {
+#create survival object
   surv_object <- Surv(time = tr_data1$OS_month, event = tr_data1$OS)
   
   #survival analysis: fits cox ph model to find HR for median cut
@@ -73,6 +78,8 @@ for(i in seq(from=col_num, to=length(tr_data1), by=1))
   
   #check whether the pvalue is significant (< 0.05) or not
   if((first[5]<=0.05)&&(!is.na(first[5]))&&(!is.na(first[2])))
+
+#append results into file
   {write.table(cbind(colnames(tr_data1[i]),first[1],first[2],first[5],fit1$n[1],fit1$n[2],1/first[2],fit1.coxph$concordance[6],fit1.coxph$concordance[7]),
                file="./Univariate_Survival_Significant_genes_List.txt",row.names=F,col.names=F,sep = '\t',append = T);#output file
   }
@@ -82,18 +89,12 @@ for(i in seq(from=col_num, to=length(tr_data1), by=1))
 #load selected Univariate features
 sel_univariate_features<-read.table("Univariate_Survival_Significant_genes_List.txt",header =TRUE, sep = "\t", row.names=1, check.names = FALSE)
 
-head(sel_univariate_features)
-dim(sel_univariate_features)
-
 
 #training data preparation with selected features 
 sel_univ_train <- as.data.frame(tr_data1[,colnames(tr_data1) %in% c(row.names(sel_univariate_features)), ])
-head(sel_univ_train,2)
-dim(sel_univ_train)
 
+#test data preparation with selected features
 sel_univ_test<- as.data.frame(te_data1[,colnames(te_data1) %in% c(row.names(sel_univariate_features)), ])
-head(sel_univ_test,2)
-dim(sel_univ_test)
 
 
 #write output into files
