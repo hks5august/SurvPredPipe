@@ -7,7 +7,7 @@
 #' @import MASS
 #' @import dplyr
 #' @examples
-#' SurvPredPipe::data_process_f(data="TCGA-LGG_protein_coding_FPKM_data_with_clin_data.txt",col_num=20, surv_time= "OS.time",output="New_data.txt") 
+#' SurvPredPipe::data_process_f(data="../inst/extdata/TCGA-LGG_protein_coding_FPKM_data_with_clin_data.txt",col_num=20, surv_time= "OS.time",output="New_data.txt") 
 #' Usage: data_process_f(data,  col_num,surv_time, output)
 #' @export
 #' 

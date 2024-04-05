@@ -27,6 +27,6 @@ data_process_f(data, col_num, surv_time, output)
 This function converting OS time (in days) into months and removing samples where OS time information is missing. Note: In the Example data OS time labelled is "OS.time" and OS event labelled as "OS"
 }
 \examples{
-SurvPredPipe::data_process_f(data="TCGA-LGG_protein_coding_FPKM_data_with_clin_data.txt",col_num=20, surv_time= "OS.time",output="New_data.txt") 
+SurvPredPipe::data_process_f(data="../inst/extdata/TCGA-LGG_protein_coding_FPKM_data_with_clin_data.txt",col_num=20, surv_time= "OS.time",output="New_data.txt") 
 Usage: data_process_f(data,  col_num,surv_time, output)
 }
