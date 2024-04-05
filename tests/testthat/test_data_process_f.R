@@ -7,7 +7,7 @@ source("/Users/kaurh8/Documents/Survival_Pred_Package/Surv_Pred_Functions/SurvPr
 test_that("data_process_f function works as expected", {
   
   # Test case 1: Ensure function works with valid input
-  data <- "TCGA-LGG_protein_coding_FPKM_data_with_clin_data.txt"
+  data <- "./extdata/TCGA-LGG_protein_coding_FPKM_data_with_clin_data.txt"
   col_num <- 20
   surv_time <- "OS.time"
   output <- "New_data.txt"

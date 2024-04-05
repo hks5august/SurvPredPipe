@@ -33,6 +33,6 @@ Univariate_sig_features_f(
 This function selects significant features (p-value <0.05)s based on median expression values of features using Univariate Survival analysis.
 }
 \examples{
-SurvPredPipe::Univariate_sig_features_f(train_data="Train_Norm_data.txt", test_data="Test_Norm_data.txt", col_num=21, surv_time="OS_month" , surv_event="OS" ,output_univariate_train="Train_Uni_sig_data.txt", output_univariate_test="Test_Uni_sig_data.txt") 
+Univariate_sig_features_f(train_data="../inst/extdata/Train_Norm_data.txt", test_data="../inst/extdata/Test_Norm_data.txt", col_num=21, surv_time="OS_month" , surv_event="OS" ,output_univariate_train="Train_Uni_sig_data.txt", output_univariate_test="Test_Uni_sig_data.txt") 
 Usage: Univariate_sig_features_f(train_data, test_data, col_num, surv_time, surv_event, output_univariate_train, output_univariate_test)
 }

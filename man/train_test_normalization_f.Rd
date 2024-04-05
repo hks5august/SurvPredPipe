@@ -33,6 +33,6 @@ train_test_normalization_f(
 This function first tranform FPKM data into log2-scale transformation, followed by quantile normalization, where training data values used as target matrix both for training and test data for quantile  normalization
 }
 \examples{
-SurvPredPipe::train_test_normalization_f(train_data="train_FPKM.txt",test_data="test_FPKM.txt", col_num=21, train_clin_data="Train_Clin.txt", test_clin_data="TestClin.txt", train_Normalized_data_clin_data="Train_Norm_data.txt", test_Normalized_data_clin_data="Test_Norm_data.txt")
+train_test_normalization_f(train_data = "../inst/extdata/train_FPKM.txt",test_data = "../inst/extdata/test_FPKM.txt",col_num = 21, train_clin_data = "Train_Clin.txt", test_clin_data = "Test_Clin.txt", train_Normalized_data_clin_data = "Train_Norm_data.txt", test_Normalized_data_clin_data = "Test_Norm_data.txt")
 Usage: train_test_normalization_f(train_data,  test_data, col_num, train_clin_data, test_clin_data, train_Normalized_data_clin_data, test_Normalized_data_clin_data)
 }

@@ -9,8 +9,8 @@ source("/Users/kaurh8/Documents/Survival_Pred_Package/Surv_Pred_Functions/SurvPr
 test_that("train_test_normalization_f function works as expected", {
   
   # Test case 1: Ensure function works with valid input
-  train_data <- "train_FPKM.txt"
-  test_data <- "test_FPKM.txt"
+  train_data <- "./extdata/train_FPKM.txt"
+  test_data <- "./extdata/test_FPKM.txt"
   col_num <- 21
   train_clin_data <- "Train_Clin.txt"
   test_clin_data <- "TestClin.txt"

@@ -8,8 +8,8 @@ source("/Users/kaurh8/Documents/Survival_Pred_Package/Surv_Pred_Functions/SurvPr
 test_that("Univariate_sig_features_f function test", {
   # Test case 1: Check for empty input variables
   expect_error(Univariate_sig_features_f(
-    train_data = NULL,
-    test_data = "Test_Norm_data.txt",
+    train_data = "./extdata/Train_Norm_data.txt",
+    test_data = "./extdata/Test_Norm_data.txt",
     col_num = 21,
     surv_time = "OS_month",
     surv_event = "OS",
@@ -20,7 +20,7 @@ test_that("Univariate_sig_features_f function test", {
   # Test case 2: Check for missing values in input variables
   expect_error(Univariate_sig_features_f(
     train_data = "Train_Norm_data.txt",
-    test_data = NA,
+    test_data = "./extdata/Test_Norm_data.txt",
     col_num = 21,
     surv_time = "OS_month",
     surv_event = "OS",

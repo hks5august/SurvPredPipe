@@ -17,6 +17,6 @@ surv_curve_plots_f(Surv_curve_data, selected_sample)
 This function generate individual survival curve for patients. Moreover, user can also highlight one specific sample by providing sample IDs
 }
 \examples{
-SurvPredPipe::surv_curve_plots_f(Surv_curve_data="survCurves_data.txt", selected_sample="TCGA-DH-5140-01")
+surv_curve_plots_f(Surv_curve_data="../inst/extdata/survCurves_data.txt", selected_sample="TCGA-TQ-A8XE-01") 
 usgae: surv_curve_plots_f(Surv_curve_data, selected_sample)
 }

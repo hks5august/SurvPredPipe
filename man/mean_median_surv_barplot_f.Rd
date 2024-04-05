@@ -15,6 +15,6 @@ mean_median_surv_barplot_f(surv_mean_med_data, selected_sample)
 This function generate barplots for mean and median survival of patients. Besides, user can also highlight one specific sample by providing sample IDs
 }
 \examples{
-SurvPredPipe::mean_median_surv_barplot_f(surv_mean_med_data="mean_median_survival_time_data.txt", selected_sample="TCGA-DH-5140-01")
+mean_median_surv_barplot_f(surv_mean_med_data="../inst/extdata/mean_median_survival_time_data.txt", selected_sample="TCGA-TQ-A8XE-01")
 usgae: mean_median_surv_barplot_f(surv_mean_med_data, selected_sample)
 }

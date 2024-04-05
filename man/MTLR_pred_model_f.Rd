@@ -38,6 +38,6 @@ Further, this model will predict the survival of test data in terms of survival 
 #'@param train_clin_data :args1 - training data with Clin features (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns)
 }
 \examples{
-SurvPredPipe::MTLR_pred_model_f(train_clin_data = "Train_Clin.txt", test_clin_data = "TestClin.txt", Model_type = 2, train_features_data = "Train_PI_data.txt", test_features_data = "Test_PI_data.txt",  Clin_Feature_List="Key_PI_list.txt" , surv_time="OS_month", surv_event="OS" ) 
+MTLR_pred_model_f(train_clin_data = "../inst/extdata/Train_Clin.txt", test_clin_data = "../inst/extdata/Test_Clin.txt", Model_type = 2, train_features_data = "../inst/extdata/Train_PI_data.txt", test_features_data = "../inst/extdata/Test_PI_data.txt" , Clin_Feature_List="../inst/extdata/Key_PI_list.txt", surv_time="OS_month", surv_event="OS") 
 Usage: MTLR_pred_model_f(train_clin_data, test_clin_data, Model_type, train_features_data, test_features_data , Clin_Feature_List ,surv_time, surv_event)
 }

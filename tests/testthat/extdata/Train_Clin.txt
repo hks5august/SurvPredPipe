@@ -1,0 +1,159 @@
+ID	Age	subtype	gender	race	ajcc_pathologic_tumor_stage	histological_type	histological_grade	treatment_outcome_first_course	radiation_treatment_adjuvant	sample_type	type	OS	OS.time	DSS	DSS.time	DFI	DFI.time	PFI	PFI.time	OS_month
+TCGA-CS-5396-01	53.11	PN	Female	WHITE	NA	Oligodendroglioma	G3	NA	YES	Primary	LGG	0	1631	0	1631	NA	NA	0	1631	54
+TCGA-DU-A76L-01	54.27	ME	Male	WHITE	NA	Oligodendroglioma	G3	Progressive Disease	NA	Primary	LGG	1	814	1	814	NA	NA	1	410	27
+TCGA-DB-5270-01	38.07	NE	Female	WHITE	NA	Oligoastrocytoma	G3	NA	NO	Primary	LGG	0	3733	0	3733	0	3733	0	3733	123
+TCGA-DB-A75P-01	25.77	NE	Female	NOT AVAILABLE	NA	Astrocytoma	G2	Complete Remission/Response	NO	Primary	LGG	0	492	0	492	0	492	0	492	16
+TCGA-S9-A6U0-01	46.24	ME	Male	WHITE	NA	Astrocytoma	G3	Partial Remission/Response	YES	Primary	LGG	1	742	1	742	NA	NA	1	692	24
+TCGA-E1-5307-01	62.52	PN	Female	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	1	1762	1	1762	NA	NA	1	1452	58
+TCGA-HT-A616-01	36.2	NE	Female	WHITE	NA	Astrocytoma	G2	NA	NA	Primary	LGG	0	55	0	55	NA	NA	0	55	2
+TCGA-DU-A7TJ-01	55.84	CL	Male	BLACK OR AFRICAN AMERICAN	NA	Astrocytoma	G3	NA	NA	Primary	LGG	0	17	0	17	NA	NA	0	17	1
+TCGA-HT-8010-01	64.83	NE	Female	WHITE	NA	Oligodendroglioma	G2	NA	NO	Primary	LGG	0	50	0	50	NA	NA	0	50	2
+TCGA-WY-A85D-01	60.18	NA	Male	WHITE	NA	Oligoastrocytoma	G2	Partial Remission/Response	NA	Primary	LGG	0	1147	0	1147	NA	NA	1	887	38
+TCGA-DU-A7TA-01	32.21	PN	Male	WHITE	NA	Oligodendroglioma	G2	Stable Disease	YES	Primary	LGG	0	2565	0	2565	NA	NA	0	2565	84
+TCGA-DH-5141-01	32.43	PN	Male	WHITE	NA	Oligodendroglioma	G3	NA	YES	Primary	LGG	0	968	0	968	NA	NA	0	968	32
+TCGA-E1-A7Z6-01	41.03	NA	Female	WHITE	NA	Astrocytoma	G2	Progressive Disease	YES	Primary	LGG	1	984	1	984	NA	NA	1	294	32
+TCGA-TM-A84B-01	40.88	NA	Male	WHITE	NA	Astrocytoma	G3	Progressive Disease	NO	Primary	LGG	1	758	1	758	NA	NA	1	758	25
+TCGA-VM-A8CH-01	24.65	NA	Female	WHITE	NA	Astrocytoma	G2	Complete Remission/Response	NO	Primary	LGG	0	714	0	714	0	714	0	714	23
+TCGA-VM-A8C8-01	50.63	NA	Female	WHITE	NA	Oligodendroglioma	G2	NA	YES	Primary	LGG	0	1397	0	1397	NA	NA	1	456	46
+TCGA-S9-A6TU-01	38.63	PN	Male	WHITE	NA	Astrocytoma	G2	Partial Remission/Response	NO	Primary	LGG	0	2650	0	2650	NA	NA	1	1475	87
+TCGA-TM-A7C3-01	43.86	CL	Female	WHITE	NA	Astrocytoma	G3	Complete Remission/Response	NO	Primary	LGG	1	1666	1	1666	1	713	1	713	55
+TCGA-S9-A6TZ-01	39.95	PN	Female	WHITE	NA	Astrocytoma	G2	Partial Remission/Response	NO	Primary	LGG	0	1120	0	1120	NA	NA	1	552	37
+TCGA-S9-A7IX-01	57.75	CL	Male	WHITE	NA	Astrocytoma	G3	Progressive Disease	YES	Primary	LGG	1	819	1	819	NA	NA	1	350	27
+TCGA-HT-8019-01	34.69	NE	Female	WHITE	NA	Oligodendroglioma	G3	NA	YES	Primary	LGG	0	1004	0	1004	0	1004	0	1004	33
+TCGA-HW-7489-01	38.88	NE	Male	WHITE	NA	Oligoastrocytoma	G2	NA	NO	Primary	LGG	1	1262	1	1262	NA	NA	1	1262	41
+TCGA-FG-8191-01	30.81	PN	Male	WHITE	NA	Oligodendroglioma	G3	NA	YES	Primary	LGG	0	992	0	992	NA	NA	0	992	33
+TCGA-DU-8161-01	63.15	CL	Female	WHITE	NA	Oligoastrocytoma	G3	NA	YES	Primary	LGG	1	722	1	722	NA	NA	1	111	24
+TCGA-TQ-A7RW-01	32.32	PN	Male	WHITE	NA	Oligodendroglioma	G2	Progressive Disease	YES	Primary	LGG	1	821	1	821	NA	NA	1	511	27
+TCGA-P5-A5F2-01	36.68	NE	Female	WHITE	NA	Astrocytoma	G2	NA	NO	Primary	LGG	0	242	0	242	NA	NA	0	242	8
+TCGA-DH-A7UU-01	43.91	PN	Male	WHITE	NA	Astrocytoma	G3	Stable Disease	YES	Primary	LGG	0	417	0	417	NA	NA	0	417	14
+TCGA-DB-A64S-01	20.23	NA	Male	WHITE	NA	Oligoastrocytoma	G2	Complete Remission/Response	NO	Primary	LGG	0	835	0	835	0	835	0	835	27
+TCGA-E1-5302-01	41.7	PN	Male	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	1	1525	1	1525	NA	NA	1	1242	50
+TCGA-DU-8158-01	57.85	NA	Female	WHITE	NA	Astrocytoma	G3	NA	NA	Primary	LGG	1	155	1	155	NA	NA	1	155	5
+TCGA-DU-6400-01	66.04	PN	Female	WHITE	NA	Oligodendroglioma	G2	NA	NO	Primary	LGG	1	37	1	37	NA	NA	1	37	1
+TCGA-DH-5142-01	29.23	PN	Male	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	0	1943	0	1943	NA	NA	1	1627	64
+TCGA-HT-A4DV-01	51.47	NE	Female	WHITE	NA	Oligodendroglioma	G3	Complete Remission/Response	YES	Primary	LGG	0	792	0	792	0	792	0	792	26
+TCGA-S9-A6WD-01	58.13	PN	Male	WHITE	NA	Oligodendroglioma	G3	Partial Remission/Response	NO	Primary	LGG	0	2289	0	2289	NA	NA	0	2289	75
+TCGA-QH-A870-01	38.55	NA	Female	WHITE	NA	Oligoastrocytoma	G3	Complete Remission/Response	NO	Primary	LGG	0	395	0	395	1	335	1	335	13
+TCGA-E1-A7YM-01	63.69	NE	Male	WHITE	NA	Astrocytoma	G3	Progressive Disease	YES	Primary	LGG	1	648	1	648	NA	NA	1	88	21
+TCGA-HT-7610-01	25.86	NE	Female	WHITE	NA	Oligoastrocytoma	G2	NA	NO	Primary	LGG	0	1706	0	1706	NA	NA	1	1205	56
+TCGA-DU-5847-01	34.51	ME	Female	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	0	548	0	548	NA	NA	0	548	18
+TCGA-DU-6404-01	24.7	CL	Female	WHITE	NA	Oligodendroglioma	G3	NA	YES	Primary	LGG	1	4068	1	4068	NA	NA	1	1154	134
+TCGA-DU-6396-01	31.29	PN	Female	WHITE	NA	Oligoastrocytoma	G3	NA	YES	Primary	LGG	1	2286	1	2286	NA	NA	1	106	75
+TCGA-HT-7854-01	62.25	NE	Male	WHITE	NA	Astrocytoma	G2	NA	YES	Primary	LGG	0	1201	0	1201	NA	NA	1	1147	39
+TCGA-CS-5393-01	39.47	PN	Male	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	0	1222	0	1222	0	1222	0	1222	40
+TCGA-HT-8108-01	26.12	PN	Female	WHITE	NA	Oligodendroglioma	G2	NA	NO	Primary	LGG	0	76	0	76	NA	NA	0	76	2
+TCGA-FG-A710-01	50.42	PN	Female	WHITE	NA	Oligodendroglioma	G2	Stable Disease	NO	Primary	LGG	0	1115	0	1115	NA	NA	0	1115	37
+TCGA-S9-A6WH-01	73.66	PN	Female	WHITE	NA	Oligoastrocytoma	G2	Partial Remission/Response	YES	Primary	LGG	0	1173	0	1173	NA	NA	0	1173	39
+TCGA-E1-A7YW-01	28.94	PN	Male	WHITE	NA	Oligoastrocytoma	G2	Progressive Disease	YES	Primary	LGG	1	1120	1	1120	NA	NA	1	409	37
+TCGA-QH-A6CZ-01	38.35	PN	Male	WHITE	NA	Oligoastrocytoma	G2	Partial Remission/Response	NO	Primary	LGG	0	279	0	279	NA	NA	0	279	9
+TCGA-DU-7304-02	43.62	NE	Male	WHITE	NA	Oligoastrocytoma	G3	NA	YES	Recurrent	LGG	1	709	1	709	NA	NA	1	309	23
+TCGA-DB-A75M-01	47.33	NA	Male	WHITE	NA	Astrocytoma	G2	NA	YES	Primary	LGG	0	544	0	544	0	544	0	544	18
+TCGA-DB-A64P-01	40.89	PN	Male	WHITE	NA	Oligodendroglioma	G3	Complete Remission/Response	NO	Primary	LGG	0	916	0	916	0	916	0	916	30
+TCGA-DU-7300-01	53.69	NE	Female	WHITE	NA	Oligodendroglioma	G3	NA	NO	Primary	LGG	1	1886	1	1886	NA	NA	1	317	62
+TCGA-DU-6397-02	45.71	PN	Male	WHITE	NA	Oligodendroglioma	G3	NA	YES	Recurrent	LGG	1	1401	1	1401	NA	NA	1	837	46
+TCGA-S9-A6WM-01	59.58	CL	Female	WHITE	NA	Astrocytoma	G3	Partial Remission/Response	YES	Primary	LGG	0	604	0	604	NA	NA	1	505	20
+TCGA-DU-6392-01	35.14	PN	Female	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	0	6423	0	6423	NA	NA	1	950	211
+TCGA-HT-A614-01	47.62	PN	Male	WHITE	NA	Oligoastrocytoma	G2	Partial Remission/Response	NA	Primary	LGG	0	82	0	82	NA	NA	0	82	3
+TCGA-TQ-A7RQ-01	38.84	PN	Female	WHITE	NA	Oligodendroglioma	G2	Complete Remission/Response	NO	Primary	LGG	0	795	0	795	0	795	0	795	26
+TCGA-DU-8168-01	55.13	PN	Female	WHITE	NA	Oligodendroglioma	G3	NA	YES	Primary	LGG	0	431	0	431	NA	NA	0	431	14
+TCGA-CS-4942-01	44.62	PN	Female	BLACK OR AFRICAN AMERICAN	NA	Astrocytoma	G3	NA	YES	Primary	LGG	1	1335	1	1335	NA	NA	1	1184	44
+TCGA-TM-A84Q-01	31.95	NA	Male	WHITE	NA	Astrocytoma	G2	Complete Remission/Response	YES	Primary	LGG	0	772	0	772	1	455	1	455	25
+TCGA-DH-A7UV-01	49.72	PN	Male	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	0	566	0	566	NA	NA	0	566	19
+TCGA-P5-A5EY-01	21.13	NE	Male	WHITE	NA	Astrocytoma	G2	NA	NA	Primary	LGG	0	72	0	72	NA	NA	0	72	2
+TCGA-DB-5273-01	33.27	NA	Male	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	0	2493	0	2493	0	2493	0	2493	82
+TCGA-FG-5962-01	54.26	NE	Male	WHITE	NA	Oligodendroglioma	G3	NA	YES	Primary	LGG	0	1453	0	1453	NA	NA	0	1453	48
+TCGA-P5-A781-01	34.93	NE	Female	WHITE	NA	Astrocytoma	G3	Complete Remission/Response	YES	Primary	LGG	0	134	0	134	0	134	0	134	4
+TCGA-DU-6404-02	24.7	CL	Female	WHITE	NA	Oligodendroglioma	G3	NA	YES	Recurrent	LGG	1	4068	1	4068	NA	NA	1	1154	134
+TCGA-E1-A7YY-01	27.01	NE	Female	WHITE	NA	Oligodendroglioma	G2	Stable Disease	YES	Primary	LGG	1	4445	1	4445	NA	NA	1	958	146
+TCGA-P5-A735-01	38.75	PN	Female	WHITE	NA	Astrocytoma	G2	Complete Remission/Response	NO	Primary	LGG	0	292	0	292	0	292	0	292	10
+TCGA-DU-5871-01	37.43	PN	Female	WHITE	NA	Oligoastrocytoma	G2	NA	YES	Primary	LGG	0	576	0	576	NA	NA	0	576	19
+TCGA-R8-A6MO-01	53.2	PN	Female	ASIAN	NA	Oligodendroglioma	G2	NA	NA	Primary	LGG	0	993	0	993	NA	NA	0	993	33
+TCGA-HW-7487-01	39.79	NE	Male	WHITE	NA	Oligodendroglioma	G2	NA	NO	Primary	LGG	0	1382	0	1382	NA	NA	1	840	45
+TCGA-TQ-A7RK-01	29.41	PN	Male	WHITE	NA	Oligoastrocytoma	G2	Complete Remission/Response	NO	Primary	LGG	0	1341	0	1341	1	858	1	858	44
+TCGA-TQ-A7RP-01	66.01	NE	Male	BLACK OR AFRICAN AMERICAN	NA	Oligoastrocytoma	G2	Partial Remission/Response	YES	Primary	LGG	0	914	0	914	NA	NA	0	914	30
+TCGA-FG-A4MW-01	63.18	CL	Male	WHITE	NA	Oligoastrocytoma	G3	NA	YES	Primary	LGG	1	559	1	559	NA	NA	1	226	18
+TCGA-S9-A6U2-01	48.73	PN	Female	WHITE	NA	Oligodendroglioma	G2	Partial Remission/Response	YES	Primary	LGG	0	908	0	908	NA	NA	0	908	30
+TCGA-CS-6666-01	22.83	PN	Male	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	0	1428	0	1428	NA	NA	0	1428	47
+TCGA-DU-7299-01	33.58	PN	Male	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	1	1339	1	1339	NA	NA	1	675	44
+TCGA-FG-A87N-01	37.25	NA	Female	ASIAN	NA	Astrocytoma	G3	Stable Disease	YES	Primary	LGG	0	567	0	567	NA	NA	0	567	19
+TCGA-HT-7884-01	44.57	PN	Female	WHITE	NA	Astrocytoma	G2	Stable Disease	YES	Primary	LGG	0	343	0	343	NA	NA	0	343	11
+TCGA-DH-A669-01	70.66	PN	Male	WHITE	NA	Oligodendroglioma	G3	Stable Disease	NA	Primary	LGG	1	919	0	919	NA	NA	1	260	30
+TCGA-DU-7018-01	57.55	PN	Female	WHITE	NA	Oligodendroglioma	G3	NA	NO	Primary	LGG	1	933	1	933	NA	NA	1	338	31
+TCGA-FG-8187-01	31.99	NE	Male	WHITE	NA	Oligoastrocytoma	G2	NA	NO	Primary	LGG	0	611	0	611	0	611	0	611	20
+TCGA-S9-A7R3-01	28.31	NA	Female	WHITE	NA	Astrocytoma	G2	Partial Remission/Response	NO	Primary	LGG	0	3013	0	3013	NA	NA	1	970	99
+TCGA-HT-A61A-01	20.98	NA	Female	WHITE	NA	Oligodendroglioma	G2	Complete Remission/Response	NA	Primary	LGG	0	194	0	194	0	194	0	194	6
+TCGA-S9-A89Z-01	40.68	NA	Male	WHITE	NA	Astrocytoma	G3	Partial Remission/Response	YES	Primary	LGG	0	623	0	623	NA	NA	0	623	20
+TCGA-CS-6667-01	39.36	NA	Female	WHITE	NA	Astrocytoma	G2	NA	YES	Primary	LGG	0	1469	0	1469	NA	NA	0	1469	48
+TCGA-TQ-A7RV-01	27.84	PN	Male	WHITE	NA	Astrocytoma	G2	Partial Remission/Response	NO	Primary	LGG	0	1868	0	1868	NA	NA	1	530	61
+TCGA-TM-A7C4-01	39.98	NE	Female	WHITE	NA	Astrocytoma	G2	Complete Remission/Response	NO	Primary	LGG	0	1470	0	1470	0	1470	0	1470	48
+TCGA-DU-7014-01	59.86	PN	Male	WHITE	NA	Oligodendroglioma	G2	NA	YES	Primary	LGG	1	3571	1	3571	NA	NA	1	3437	117
+TCGA-HT-7694-01	60.04	NE	Male	WHITE	NA	Oligodendroglioma	G3	NA	YES	Primary	LGG	0	210	0	210	0	210	0	210	7
+TCGA-DU-7292-01	69.17	NE	Male	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	1	242	1	242	NA	NA	1	91	8
+TCGA-DB-5277-01	34.84	PN	Male	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	1	1547	1	1547	1	1156	1	1156	51
+TCGA-DU-7008-01	41.86	PN	Female	WHITE	NA	Oligodendroglioma	G2	NA	NO	Primary	LGG	0	4752	0	4752	NA	NA	1	330	156
+TCGA-TM-A84H-01	44.56	NA	Female	WHITE	NA	Oligoastrocytoma	G3	Complete Remission/Response	YES	Primary	LGG	0	926	0	926	0	926	0	926	30
+TCGA-P5-A77X-01	55.11	NE	Female	WHITE	NA	Oligoastrocytoma	G2	Complete Remission/Response	YES	Primary	LGG	0	105	0	105	0	105	0	105	3
+TCGA-HT-8109-01	64.3	NE	Male	WHITE	NA	Oligodendroglioma	G3	NA	YES	Primary	LGG	0	169	0	169	NA	NA	0	169	6
+TCGA-HT-7873-01	29.58	PN	Male	WHITE	NA	Oligoastrocytoma	G2	NA	YES	Primary	LGG	0	718	0	718	NA	NA	0	718	24
+TCGA-HT-7856-01	35.99	NE	Male	WHITE	NA	Oligodendroglioma	G3	NA	YES	Primary	LGG	0	1189	0	1189	0	1189	0	1189	39
+TCGA-DB-A4XC-01	26.57	NE	Male	WHITE	NA	Oligoastrocytoma	G2	Partial Remission/Response	YES	Primary	LGG	0	1421	0	1421	NA	NA	0	1421	47
+TCGA-DU-A5TT-01	70.43	NA	Male	WHITE	NA	Oligodendroglioma	G3	Discrepancy	YES	Primary	LGG	0	743	0	743	NA	NA	1	584	24
+TCGA-QH-A6CU-01	52.43	NA	Female	WHITE	NA	Oligodendroglioma	G3	NA	YES	Primary	LGG	0	451	0	451	NA	NA	0	451	15
+TCGA-HW-8321-01	31.41	PN	Male	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	0	1294	0	1294	NA	NA	0	1294	43
+TCGA-DU-6542-01	25.68	PN	Male	WHITE	NA	Oligoastrocytoma	G3	NA	YES	Primary	LGG	0	73	0	73	NA	NA	0	73	2
+TCGA-S9-A6TX-01	46.61	PN	Male	WHITE	NA	Oligodendroglioma	G3	Complete Remission/Response	NO	Primary	LGG	0	1245	0	1245	1	856	1	856	41
+TCGA-S9-A6WG-01	31.51	ME	Male	WHITE	NA	Astrocytoma	G3	Progressive Disease	YES	Primary	LGG	0	2602	0	2602	NA	NA	0	2602	86
+TCGA-QH-A86X-01	33.91	NA	Male	WHITE	NA	Oligodendroglioma	G2	Complete Remission/Response	NO	Primary	LGG	0	337	0	337	0	337	0	337	11
+TCGA-HT-8114-01	36.13	NA	Male	WHITE	NA	Oligoastrocytoma	G3	NA	YES	Primary	LGG	0	1040	0	1040	0	1040	0	1040	34
+TCGA-DU-7302-01	48.34	NE	Female	WHITE	NA	Oligodendroglioma	G3	NA	NO	Primary	LGG	0	1834	0	1834	NA	NA	1	1374	60
+TCGA-HT-7606-01	30.75	PN	Female	WHITE	NA	Astrocytoma	G2	NA	YES	Primary	LGG	0	526	0	526	0	526	0	526	17
+TCGA-TM-A7CA-01	44.94	PN	Male	WHITE	NA	Astrocytoma	G2	Complete Remission/Response	NO	Primary	LGG	0	1058	0	1058	0	1058	0	1058	35
+TCGA-HT-A61B-01	22.82	NA	Male	WHITE	NA	Astrocytoma	G3	Complete Remission/Response	YES	Primary	LGG	0	533	0	533	0	533	0	533	18
+TCGA-HT-7611-01	36.45	NA	Male	WHITE	NA	Oligoastrocytoma	G2	Complete Remission/Response	NA	Primary	LGG	0	1752	0	1752	0	1752	0	1752	58
+TCGA-HW-7490-01	41.32	NA	Male	WHITE	NA	Astrocytoma	G2	NA	NO	Primary	LGG	0	1387	0	1387	NA	NA	0	1387	46
+TCGA-DB-A4XF-01	41.25	PN	Female	WHITE	NA	Astrocytoma	G3	Stable Disease	YES	Primary	LGG	0	1021	0	1021	NA	NA	1	468	34
+TCGA-TM-A84T-01	19.15	NA	Male	WHITE	NA	Oligoastrocytoma	G2	Stable Disease	NO	Primary	LGG	0	724	0	724	NA	NA	0	724	24
+TCGA-E1-A7YI-01	33.48	PN	Female	WHITE	NA	Astrocytoma	G3	NA	NA	Primary	LGG	1	111	1	111	NA	NA	1	56	4
+TCGA-DU-6397-01	45.71	PN	Male	WHITE	NA	Oligodendroglioma	G3	NA	YES	Primary	LGG	1	1401	1	1401	NA	NA	1	837	46
+TCGA-DB-A4XE-01	27.79	PN	Female	WHITE	NA	Oligoastrocytoma	G3	Complete Remission/Response	YES	Primary	LGG	0	1139	0	1139	0	1139	0	1139	37
+TCGA-FG-7637-01	49.51	PN	Male	WHITE	NA	Oligoastrocytoma	G2	NA	NO	Primary	LGG	0	1219	0	1219	NA	NA	0	1219	40
+TCGA-DU-A7T6-01	73.28	PN	Female	WHITE	NA	Oligodendroglioma	G3	NA	NA	Primary	LGG	1	547	1	547	NA	NA	1	547	18
+TCGA-QH-A6CW-01	43.39	NA	Male	WHITE	NA	Oligoastrocytoma	G3	Partial Remission/Response	NO	Primary	LGG	0	414	0	414	NA	NA	0	414	14
+TCGA-DB-A64W-01	65.53	PN	Female	WHITE	NA	Oligoastrocytoma	G3	Stable Disease	YES	Primary	LGG	1	438	0	438	NA	NA	0	438	14
+TCGA-S9-A6WE-01	34.19	PN	Male	WHITE	NA	Oligodendroglioma	G2	Partial Remission/Response	NO	Primary	LGG	0	4113	0	4113	NA	NA	0	4113	135
+TCGA-E1-5318-01	42.09	PN	Female	WHITE	NA	Oligodendroglioma	G2	NA	YES	Primary	LGG	1	2379	1	2379	NA	NA	1	362	78
+TCGA-FG-A711-01	33.53	NE	Female	WHITE	NA	Oligodendroglioma	G2	Progressive Disease	NO	Primary	LGG	1	1481	1	1481	NA	NA	1	347	49
+TCGA-R8-A73M-01	48.21	PN	Female	WHITE	NA	Oligodendroglioma	G2	NA	NA	Primary	LGG	0	1806	0	1806	NA	NA	0	1806	59
+TCGA-S9-A6U5-01	34	PN	Male	WHITE	NA	Astrocytoma	G2	Complete Remission/Response	NO	Primary	LGG	0	992	0	992	0	992	0	992	33
+TCGA-S9-A7R4-01	46.91	PN	Male	WHITE	NA	Astrocytoma	G3	Partial Remission/Response	YES	Primary	LGG	0	914	0	914	NA	NA	0	914	30
+TCGA-DU-6399-01	54.5	PN	Male	WHITE	NA	Oligodendroglioma	G2	NA	YES	Primary	LGG	1	2000	1	2000	NA	NA	1	1629	66
+TCGA-TM-A84G-01	54.8	NA	Female	WHITE	NA	Oligodendroglioma	G3	Complete Remission/Response	YES	Primary	LGG	0	1236	0	1236	0	1236	0	1236	41
+TCGA-CS-4943-01	37.14	PN	Male	WHITE	NA	Astrocytoma	G3	NA	NO	Primary	LGG	1	1106	1	1106	NA	NA	1	1106	36
+TCGA-HT-8011-01	55.24	NA	Male	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	0	494	0	494	NA	NA	1	278	16
+TCGA-TQ-A7RF-01	27.16	NA	Female	WHITE	NA	Oligodendroglioma	G3	Partial Remission/Response	YES	Primary	LGG	0	650	0	650	NA	NA	0	650	21
+TCGA-P5-A5EX-01	41.32	ME	Female	WHITE	NA	Oligodendroglioma	G3	NA	YES	Primary	LGG	0	243	0	243	NA	NA	0	243	8
+TCGA-DB-5281-01	61.17	NE	Male	WHITE	NA	Oligoastrocytoma	G3	NA	YES	Primary	LGG	0	2381	0	2381	NA	NA	0	2381	78
+TCGA-HW-A5KK-01	64.3	CL	Male	WHITE	NA	Astrocytoma	G3	Progressive Disease	YES	Primary	LGG	1	388	1	388	NA	NA	1	388	13
+TCGA-DU-A6S3-01	60.34	PN	Male	WHITE	NA	Oligodendroglioma	G2	Stable Disease	NO	Primary	LGG	0	656	0	656	NA	NA	0	656	22
+TCGA-FG-6688-01	59.53	NA	Female	BLACK OR AFRICAN AMERICAN	NA	Astrocytoma	G3	NA	YES	Primary	LGG	0	571	0	571	NA	NA	1	405	19
+TCGA-DU-8164-01	51.29	PN	Male	WHITE	NA	Oligodendroglioma	G2	NA	NO	Primary	LGG	0	651	0	651	NA	NA	0	651	21
+TCGA-QH-A65S-01	32.47	PN	Female	WHITE	NA	Oligoastrocytoma	G2	NA	NO	Primary	LGG	0	77	0	77	NA	NA	0	77	3
+TCGA-HT-7881-01	38.8	NE	Male	BLACK OR AFRICAN AMERICAN	NA	Oligodendroglioma	G2	NA	YES	Primary	LGG	0	1079	0	1079	0	1079	0	1079	35
+TCGA-HT-A619-01	51.63	PN	Female	ASIAN	NA	Oligodendroglioma	G3	Complete Remission/Response	NO	Primary	LGG	0	651	0	651	0	651	0	651	21
+TCGA-HT-7855-01	39.69	PN	Male	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	0	585	0	585	0	585	0	585	19
+TCGA-TM-A84S-01	36.75	NA	Male	WHITE	NA	Oligodendroglioma	G3	Complete Remission/Response	NO	Primary	LGG	0	454	0	454	0	454	0	454	15
+TCGA-HW-A5KJ-01	68.35	PN	Male	WHITE	NA	Oligodendroglioma	G3	Progressive Disease	YES	Primary	LGG	1	962	1	962	NA	NA	1	615	32
+TCGA-HT-8563-01	30.95	ME	Female	WHITE	NA	Astrocytoma	G3	Complete Remission/Response	YES	Primary	LGG	0	860	0	860	0	860	0	860	28
+TCGA-VM-A8C9-01	37.41	NA	Female	NOT AVAILABLE	NA	Astrocytoma	G2	Complete Remission/Response	NO	Primary	LGG	0	1314	0	1314	0	1314	0	1314	43
+TCGA-DB-A4XB-01	38.3	PN	Male	WHITE	NA	Astrocytoma	G3	Stable Disease	YES	Primary	LGG	0	919	0	919	NA	NA	0	919	30
+TCGA-CS-6665-01	51.96	NA	Female	WHITE	NA	Astrocytoma	G3	NA	YES	Primary	LGG	0	1568	0	1568	NA	NA	0	1568	52
+TCGA-DB-5279-01	59.98	NE	Male	NOT AVAILABLE	NA	Oligodendroglioma	G2	NA	NO	Primary	LGG	0	1354	0	1354	1	695	1	695	45
+TCGA-DH-5143-01	30.91	NE	Male	WHITE	NA	Oligoastrocytoma	G3	NA	YES	Primary	LGG	0	1401	0	1401	NA	NA	0	1401	46
+TCGA-S9-A6WQ-01	57.86	PN	Female	WHITE	NA	Oligoastrocytoma	G2	Partial Remission/Response	NO	Primary	LGG	0	428	0	428	NA	NA	0	428	14
+TCGA-S9-A7QY-01	35.19	PN	Female	WHITE	NA	Oligoastrocytoma	G2	Partial Remission/Response	NO	Primary	LGG	0	863	0	863	NA	NA	0	863	28
+TCGA-P5-A5F6-01	26.21	ME	Male	WHITE	NA	Oligodendroglioma	G2	NA	NA	Primary	LGG	0	39	0	39	NA	NA	0	39	1
+TCGA-HT-A5RA-01	65.08	CL	Female	WHITE	NA	Astrocytoma	G3	Partial Remission/Response	YES	Primary	LGG	0	832	0	832	NA	NA	0	832	27
+TCGA-HT-7485-01	42.68	NA	Male	WHITE	NA	Astrocytoma	G2	NA	NO	Primary	LGG	0	122	0	122	0	122	0	122	4
+TCGA-EZ-7264-01	47.73	PN	Female	WHITE	NA	Oligodendroglioma	G2	NA	NO	Primary	LGG	0	1201	0	1201	NA	NA	0	1201	39
+TCGA-P5-A5EW-01	20.84	PN	Female	WHITE	NA	Astrocytoma	G2	NA	NA	Primary	LGG	0	204	0	204	NA	NA	0	204	7
+TCGA-S9-A6WI-01	56.42	NE	Female	WHITE	NA	Oligoastrocytoma	G2	Partial Remission/Response	YES	Primary	LGG	0	2585	0	2585	NA	NA	0	2585	85

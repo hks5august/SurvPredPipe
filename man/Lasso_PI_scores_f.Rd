@@ -2,7 +2,8 @@
 % Please edit documentation in R/Lasso_PI_scores_f.R
 \name{Lasso_PI_scores_f}
 \alias{Lasso_PI_scores_f}
-\title{Subsequently, PI score will be calculated by multiplying expression of genes with their beta coeff values.}
+\title{This function will create PI (Prognostic Index) score based on selected LASSO genes for training and test data.  Here, firstly, LASSO will select genes with beta coefficient values based on COX lasso regression using 5-fold cross validation. Subsequently, PI score will be calculated by multiplying expression of genes with their beta coeff values.
+#' @param train_data :args1 - training data (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns)}
 \usage{
 Lasso_PI_scores_f(
   train_data,
@@ -31,9 +32,10 @@ Lasso_PI_scores_f(
 \item{test_data_data}{:args2 - training data (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns)}
 }
 \description{
+This function will create PI (Prognostic Index) score based on selected LASSO genes for training and test data.  Here, firstly, LASSO will select genes with beta coefficient values based on COX lasso regression using 5-fold cross validation. Subsequently, PI score will be calculated by multiplying expression of genes with their beta coeff values.
 #' @param train_data :args1 - training data (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns)
 }
 \examples{
-SurvPredPipe::Lasso_PI_scores_f(train_data="Train_Norm_data.txt",test_data="Test_Norm_data.txt", nfolds=5, col_num=21, surv_time="OS_month", surv_event="OS", train_PI_data="Train_PI_data.txt", test_PI_data="Test_PI_data.txt" )
+Lasso_PI_scores_f(train_data="../inst/extdata/Train_Norm_data.txt",test_data="../inst/extdata/Test_Norm_data.txt", nfolds=5, col_num=21, surv_time="OS_month" , surv_event="OS" , train_PI_data="Train_PI_data.txt", test_PI_data="Test_PI_data.txt" )
 Usage: Lasso_PI_scores_f(train_data, test_data, nfolds, col_num, surv_time, surv_event, train_PI_data, test_PI_data)
 }

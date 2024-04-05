@@ -8,7 +8,7 @@ source("/Users/kaurh8/Documents/Survival_Pred_Package/Surv_Pred_Functions/SurvPr
 test_that("tr_test_f function works as expected", {
   
   # Test case 1: Ensure function works with valid input
-  data <- "New_data.txt"
+  data <- "./extdata/New_data.txt"
   fraction <- 0.9
   train_data <- "train_data.txt"
   test_data <- "test_data.txt"

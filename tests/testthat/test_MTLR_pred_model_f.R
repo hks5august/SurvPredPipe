@@ -7,8 +7,8 @@ source("/Users/kaurh8/Documents/Survival_Pred_Package/Surv_Pred_Functions/SurvPr
 test_that("MTLR_pred_model_f function test", {
   # Test case 1: Check for empty input variables
   expect_error(MTLR_pred_model_f(
-    train_clin_data = NULL,
-    test_clin_data = "TestClin.txt",
+    train_clin_data = "./extdata/Train_Clin.txt",
+    test_clin_data = "./extdata/Test_Clin.txt",
     Model_type = 2,
     train_features_data = "Train_PI_data.txt",
     test_features_data = "Test_PI_data.txt",
@@ -20,7 +20,7 @@ test_that("MTLR_pred_model_f function test", {
   # Test case 2: Check for missing values in input variables
   expect_error(MTLR_pred_model_f(
     train_clin_data = "Train_Clin.txt",
-    test_clin_data = NA,
+    test_clin_data = "./extdata/Test_Clin.txt",
     Model_type = 2,
     train_features_data = "Train_PI_data.txt",
     test_features_data = "Test_PI_data.txt",

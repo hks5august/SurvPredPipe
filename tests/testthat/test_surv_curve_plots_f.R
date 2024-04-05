@@ -8,7 +8,7 @@ source("/Users/kaurh8/Documents/Survival_Pred_Package/Surv_Pred_Functions/SurvPr
 test_that("surv_curve_plots_f function test", {
   # Test case 1: Check for empty input variables
   expect_error(surv_curve_plots_f(
-    Surv_curve_data = NULL,
+    Surv_curve_data = ,
     selected_sample = "TCGA-DH-5140-01"
   ), "Error: Empty input variable detected.")
 

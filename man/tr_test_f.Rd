@@ -9,8 +9,9 @@ tr_test_f(data, fraction, train_data, test_data)
 \arguments{
 \item{fraction, }{by which user want to split data for training data; e.g. 90\% training, so fraction would be 0.9}
 
-\item{train_data, }{name of training set that user can provide
-@param test_data, name of test set that user can provide}
+\item{train_data, }{name of training set that user can provide}
+
+\item{test_data, }{name of test set that user can provide}
 
 \item{data:}{a dataframe where features in the columns and samples must be in rows}
 }
@@ -21,6 +22,6 @@ training and test data
 This function split data into training and test data as per user defined ratio
 }
 \examples{
-SurvPredPipe::tr_test_f(data="New_data.txt",fraction=0.9, train_data="train_FPKM.txt", test_data="test_FPKM.txt") 
+tr_test_f(data="../inst/extdata/New_data.txt",fraction=0.9, train_data="train_FPKM.txt",test_data="test_FPKM.txt")
 Usage: tr_test_f(data, fraction, train_data, test_data)
 }

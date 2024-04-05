@@ -19,6 +19,6 @@ This function will generate Nomogram based on User Selected Clinical and other f
 #'@param data :args1 - data containing all Clinical features and other features (Patients data with clinical and gene expression, where samples are in rows and features/genes are in columns). This data must contain survival information (OS column for - Event and survival time as OS_month, Note: Column name- OS, OS_month )
 }
 \examples{
-Nomogram_generate_f(data="Train_Data_Nomogram_input.txt",  Feature_List="feature_list_for_Nomogram.txt", surv_time="OS_month", surv_event="OS")
+Nomogram_generate_f(data="../inst/extdata/Train_Data_Nomogram_input.txt",  Feature_List="../inst/extdata/feature_list_for_Nomogram.txt", surv_time="OS_month", surv_event="OS")
 Usage: Nomogram_generate_f(data,  Feature_List, surv_time, surv_event)
 }
