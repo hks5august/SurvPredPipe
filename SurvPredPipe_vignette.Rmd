@@ -40,11 +40,9 @@ library(Matrix)
 library(Hmisc)
 library(survivalROC)
 library(ROCR)
-```
 
-```{r 
 #set path of the working directory where input data available
-#setwd()
+setwd("Path_to_working_Directory")
 
 #set seed
 set.seed(7)
