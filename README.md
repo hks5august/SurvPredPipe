@@ -107,7 +107,8 @@ head(data[1:25],3)
 
 ```
 
-<img width="613" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/3814546d-2551-49be-b885-3d5fe42cee0c">
+<img width="1577" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/b654f0b5-6122-4a01-ab4f-19d7ca4bd238">
+
 
 
 
@@ -179,7 +180,8 @@ SurvPredPipe::train_test_normalization_f(train_data="train_FPKM.txt",test_data="
 After, running the function, we obtained 4 outputs: 
 1.Train_Clin.txt - Contains only Clinical features, 
 2. Test_Clin.txt- contains only Clinical features of Test samples;  
-3. Train_Norm_data.txt- Clinical features with normalized values of genes for training samples; 4. Test_Norm_data.txt - Clinical features with normalized values of genes for test samples.
+3. Train_Norm_data.txt- Clinical features with normalized values of genes for training samples; 4. 
+Test_Norm_data.txt - Clinical features with normalized values of genes for test samples.
 
 Let’s Check output of train_test_normalization_f function:
 ```r
@@ -196,14 +198,8 @@ train_Normalized_data_clin_data <- read.table("Train_Norm_data.txt", sep="\t", h
 head(train_Normalized_data_clin_data[1:25],2)
 ```
 
+<img width="1761" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/4c61781f-636c-4c48-b9be-fe12ee8ca6e9">
 
-
-                  Age subtype gender  race ajcc_pathologic_tumor_stage histological_type histological_grade treatment_outcome_first_course
-TCGA-CS-5396-01 53.11      PN Female WHITE                          NA Oligodendroglioma                 G3                           <NA>
-TCGA-DU-A76L-01 54.27      ME   Male WHITE                          NA Oligodendroglioma                 G3            Progressive Disease
-                radiation_treatment_adjuvant sample_type type OS OS.time DSS DSS.time DFI DFI.time PFI PFI.time OS_month  A1BG A1CF     A2M A2ML1 A3GALT2
-TCGA-CS-5396-01                          YES     Primary  LGG  0    1631   0     1631  NA       NA   0     1631       54 0.294    0  71.912 0.286   0.114
-TCGA-DU-A76L-01                         <NA>     Primary  LGG  1     814   1      814  NA       NA   1      410       27 0.144    0 233.872 0.108   0.227
 
 ```r
  #load normalized test data with clinical information
@@ -222,13 +218,7 @@ head(test_Normalized_data_clin_data[1:25],2)
 ```
 
 
-
-                  Age subtype gender  race ajcc_pathologic_tumor_stage histological_type histological_grade treatment_outcome_first_course
-TCGA-DH-A669-02 70.66      PN   Male WHITE                          NA Oligodendroglioma                 G3                 Stable Disease
-TCGA-WY-A859-01 34.58    <NA> Female WHITE                          NA       Astrocytoma                 G2                 Stable Disease
-                radiation_treatment_adjuvant sample_type type OS OS.time DSS DSS.time DFI DFI.time PFI PFI.time OS_month  A1BG  A1CF    A2M A2ML1 A3GALT2
-TCGA-DH-A669-02                         <NA>   Recurrent  LGG  1     919   0      919  NA       NA   1      260       30 0.301 0.009 60.121 0.401   0.000
-TCGA-WY-A859-01                         <NA>     Primary  LGG  0    1213   0     1213  NA       NA   0     1213       40 0.081 0.000 31.696 1.748   0.095
+<img width="1561" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/8beb9276-b53a-46d1-842d-4156cf752299">
 
 
 
@@ -265,14 +255,8 @@ dim(Lasso_key_variables)
 head(Lasso_key_variables)
 ```
 
+<img width="193" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/b86bc1a3-2a0d-4c1b-8f59-54942b36af35">
 
-           coeff
-ALG6       0.037
-ARHGAP11A  0.096
-DESI1     -0.028
-GALNT7     0.101
-GJD3       0.284
-GPC1       0.005
 
 
 Train_Cox_Lasso_Regression_lamda_plot.jpeg: Lasso Regression Lambda plot:
@@ -297,13 +281,8 @@ dim(train_PI_data)
 head(train_PI_data,2)
 ```
 
+<img width="1169" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/e96358b5-ad02-415c-a2f7-280a9317496b">
 
-
-                OS OS_month  ALG6 ARHGAP11A  DESI1 GALNT7  GJD3   GPC1 H2BC5 HOXD12 RNF185 TANGO2    UNG ZNF648       PI
-
-TCGA-CS-5396-01  0       54 4.705     1.241 24.866  5.760 0.074 20.434 4.004  0.019 19.033  1.660 11.262  0.115 0.287790
-
-TCGA-DU-A76L-01  1       27 3.392     3.124  9.048  2.927 2.521 61.482 5.335  0.087  9.067  0.897 14.827  0.055 1.617081
 
 ```r
  #Load test data containing LASSO selected genes and PI Value
@@ -319,13 +298,8 @@ dim(test_PI_data)
 head(test_PI_data,2)
 ```
 
+<img width="1082" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/d03fea64-2568-4860-86d2-bf5f8e9f65f8">
 
-
-                OS OS_month  ALG6 ARHGAP11A  DESI1 GALNT7  GJD3   GPC1 H2BC5 HOXD12 RNF185 TANGO2    UNG ZNF648        PI
-
-TCGA-DH-A669-02  1       30 2.919     1.288 18.533  2.323 0.295 54.726 8.651  0.136 11.046  1.780 20.197  0.089  0.486198
-
-TCGA-WY-A859-01  0       40 1.433     0.279 23.926  1.066 0.117 39.250 4.240  0.006 13.179  1.829  9.860  0.003 -0.275303
 
 
 
@@ -358,14 +332,9 @@ dim(Univariate_Survival_Significant_genes_List)
 ```
 
 
+<img width="905" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/de0923b6-fd95-4cb9-8737-dc53360acbda">
 
-              Beta        HR     P-value GP1 GP2 Hr-Inv-lst Concordance  Std_Error
 
-A2ML1   -0.9255326 0.3963203 0.016055099  20 138  2.5232117   0.5578119 0.03819547
-AADACL2  1.3245266 3.7604047 0.001723308 148  10  0.2659288   0.5620198 0.03521353
-AARS1   -0.7793207 0.4587175 0.016107789  74  84  2.1799910   0.6337358 0.04249702
-ABCA12   1.3690240 3.9315117 0.004805718 150   8  0.2543551   0.5539700 0.03202036
-ABCA6    0.9601084 2.6119796 0.038305760 136  22  0.3828514   0.5554336 0.03656689
 
 
 Train_Uni_sig_data.txt: It contains expression of significant genes selected by univariate survival analysis for training samples.
@@ -384,14 +353,8 @@ Train_Uni_sig_data.txt: It contains expression of significant genes selected by 
 head(train_Uni_sig_data[1:20],2)
 ```
 
+<img width="2065" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/6f5d1614-a542-4e8b-b48c-7b98901f0e53">
 
-
-                A2ML1 AADACL2  AARS1 ABCA12 ABCA6 ABCC11 ABCC3 ABCC9 ABHD10 ABHD11   ABI1 ABI3BP ABLIM1 AC004997.1 AC005832.4 AC006030.1 AC011455.2 AC012309.1
-TCGA-CS-5396-01 0.286       0 33.197  0.214 0.403  0.157 1.152 0.630 12.924  6.461 22.471  0.541 14.608      0.000          0      0.006          0      0.015
-TCGA-DU-A76L-01 0.108       0 26.215  0.298 0.231  0.059 5.263 0.371  9.812  7.890 14.744  0.877  9.228      0.005          0      0.010          0      0.007
-                AC091057.5 AC093323.1
-TCGA-CS-5396-01          0      5.222
-TCGA-DU-A76L-01          0      8.101
 
 
 Test_Uni_sig_data.txt: It contains expression of significant genes selected by univariate survival analysis for test samples.
@@ -412,14 +375,7 @@ dim(test_Uni_sig_data)
 head(test_Uni_sig_data[1:20],2)
 ```
 
-
-
-                A2ML1 AADACL2  AARS1 ABCA12 ABCA6 ABCC11 ABCC3 ABCC9 ABHD10 ABHD11   ABI1 ABI3BP ABLIM1 AC004997.1 AC005832.4 AC006030.1 AC011455.2 AC012309.1
-TCGA-DH-A669-02 0.401       0 37.720  0.078 0.011  0.073 0.338 0.194 14.795 17.986 20.666  0.272 13.782      0.000          0          0          0          0
-TCGA-WY-A859-01 1.748       0 36.523  0.023 0.032  0.090 0.122 0.575 15.203  6.817 31.915  0.341 17.683      0.002          0          0          0          0
-                AC091057.5 AC093323.1
-TCGA-DH-A669-02          0      4.955
-TCGA-WY-A859-01          0     10.609
+<img width="2306" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/2e8621d8-6679-498b-9e44-9888a65583ce">
 
 
 # Step 5 - Prediction model development for survival probability of patients
@@ -449,19 +405,8 @@ dim(survCurves_data)
 head(survCurves_data,5)
 ```
 
+<img width="1564" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/531bee7d-18b6-4e7d-8e5d-8b3b5edf2d4e">
 
-  time_point TCGA-DH-A669-02 TCGA-WY-A859-01 TCGA-TQ-A7RN-01 TCGA-FG-A6IZ-01 TCGA-HW-8319-01 TCGA-TM-A7CF-02 TCGA-DU-7010-01 TCGA-HT-7686-01 TCGA-WY-A858-01
-1   0.000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000
-2   3.466667       0.9909155       0.9972704       0.9773009       0.9955466       0.9960141       0.9961896       0.9905094       0.9939210       0.9959694
-3   8.000000       0.9719876       0.9916419       0.9295280       0.9863267       0.9877695       0.9883111       0.9707273       0.9813015       0.9876316
-4  14.000000       0.9514804       0.9852768       0.8798802       0.9760716       0.9785641       0.9795008       0.9493315       0.9674200       0.9783257
-5  18.000000       0.9398923       0.9814651       0.8533639       0.9700671       0.9731460       0.9743045       0.9372695       0.9594131       0.9728513
-  TCGA-TQ-A8XE-01 TCGA-DU-6408-01 TCGA-HT-7874-01 TCGA-DU-8162-01 TCGA-KT-A7W1-01 TCGA-VV-A829-01 TCGA-VM-A8CA-01 TCGA-HT-A61C-01 TCGA-S9-A6WN-01
-1       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000
-2       0.9921240       0.9962126       0.9966324       0.9942035       0.9683777       0.9979307       0.9971536       0.9765579       0.9931295
-3       0.9757360       0.9883821       0.9896764       0.9821754       0.9014997       0.9936732       0.9912822       0.9271999       0.9788516
-4       0.9578822       0.9796236       0.9818651       0.9689217       0.8333833       0.9888145       0.9846516       0.8759960       0.9632163
-5       0.9477176       0.9744564       0.9772317       0.9612589       0.7979822       0.9858691       0.9806885       0.8487143       0.9542526
 
 
 mean_median_survival_time_data.txt: Table containing predicted mean and median survival time  of each patient in the test data. This data can be further used for bar plots.
@@ -480,13 +425,8 @@ View top 5 rows of mean_median_survival_time_data
 head(mean_median_survival_time_data,5)
 ```
 
+<img width="534" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/f0c4f9ed-651f-47ce-b778-5975b559ab2a">
 
-              IDs     Mean   Median
-1 TCGA-DH-A669-02 67.84700 60.52883
-2 TCGA-WY-A859-01 90.91569 85.75383
-3 TCGA-TQ-A7RN-01 46.94777 36.31438
-4 TCGA-FG-A6IZ-01 81.98710 81.61567
-5 TCGA-HW-8319-01 84.05714 82.71186
 
 Error_mat_for_Model.txt: Table containing performance parameters obtained on test data based on prediction model. It contains IBS score (Integrated Brier Score) =0.192, C-Index =0.81.
 ```r
@@ -496,10 +436,8 @@ Error_mat_for_Model <- read.table("Error_mat_for_Model.txt", sep="\t", header=TR
 head(Error_mat_for_Model)
 ```
 
+<img width="419" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/0dd2731b-8dd8-4c2a-b193-360b4c193bde">
 
-
-    IBS_Score c_index
-IBS     0.192    0.81
 
 
 # Step 6 - Survival curves/plots for individual patient
