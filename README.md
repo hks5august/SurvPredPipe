@@ -14,9 +14,6 @@ library("SurvPredPipe")
 ```
 
 
-![SurvPredPipe_workflow](https://github.com/hks5august/SurvPredPipe/assets/46756503/c791da26-1b96-49a9-861e-e6d54c51954e)
-
-
 
 SurvPredPipe_Package.pdf file explains description, installation detail, details of each function, variable.
 
