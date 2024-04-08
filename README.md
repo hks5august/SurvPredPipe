@@ -28,6 +28,7 @@ The "inst" folder/directory contains two folders: (1) "extdata" subfolder contai
 The vignettes directory contains Figures, extdata, workflow file.
 
 
-![SurvPredPipe_workflow](https://github.com/hks5august/SurvPredPipe/assets/46756503/8c91632d-2243-4cca-ba53-9a12b07d6b20)
+![SurvPredPipe_workflow](https://github.com/hks5august/SurvPredPipe/assets/46756503/795d1d62-9d8a-487f-88b5-7c76d5fdaf6a)
+
 
 Figure: The Workflow of SurvPredPipe representing different steps performed by various functions of SurvPredPipe package.
