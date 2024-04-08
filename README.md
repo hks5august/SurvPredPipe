@@ -8,7 +8,7 @@ The SurvPredPipe package is for a computational pipeline for the prediction Surv
 Figure: The Workflow of SurvPredPipe representing different steps performed by various functions of SurvPredPipe package.
 
 
-# Follow the Steps to Install package 
+# Follow the Steps to Install SurvPredPipe package on your Local R system:
 ```r
 #Step1: First Install remote package
 install.packages("remotes") 
