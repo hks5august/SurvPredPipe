@@ -1,7 +1,14 @@
 # SurvPredPipe
-SurvPredPipe: A R-Package for the Computational Pipeline to Predict Survival Probability of Cancer Patients
+The SurvPredPipe package is for a computational pipeline for the prediction Survival Probability of Cancer Patients. It performs various steps: Data Processing, Split data into training and test subset, Data Normalization, Select Significant features based on Univariate survival,  Generate LASSO PI Score, Develop Prediction model for survival probability based on different features  and draw survival curve based on predicted survival probability values and barplots for predicted mean and median survival time of patients.
 
-Follow the Steps to Install package 
+
+
+![SurvPredPipe_workflow](https://github.com/hks5august/SurvPredPipe/assets/46756503/795d1d62-9d8a-487f-88b5-7c76d5fdaf6a)
+
+Figure: The Workflow of SurvPredPipe representing different steps performed by various functions of SurvPredPipe package.
+
+
+# Follow the Steps to Install package 
 ```r
 #Step1: First Install remote package
 install.packages("remotes") 
@@ -28,7 +35,3 @@ The "inst" folder/directory contains two folders: (1) "extdata" subfolder contai
 The vignettes directory contains Figures, extdata, workflow file.
 
 
-![SurvPredPipe_workflow](https://github.com/hks5august/SurvPredPipe/assets/46756503/795d1d62-9d8a-487f-88b5-7c76d5fdaf6a)
-
-
-Figure: The Workflow of SurvPredPipe representing different steps performed by various functions of SurvPredPipe package.
