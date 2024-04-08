@@ -22,16 +22,22 @@ library("SurvPredPipe")
 
 
 
-SurvPredPipe_Package.pdf file explains description, installation detail, details of each function, variable.
+# SurvPredPipe_Package.pdf:
+This file explains description, installation detail, details of each function, variable.
 
-SurvPredPipe_Packageworkflow.pdf file explains workflow (Step by Step) of SurvPredPipe package with an example for user to follow.
+# SurvPredPipe_Packageworkflow.pdf: 
+This file explains workflow (Step by Step) of SurvPredPipe package with an example for user to follow.
 
-SurvPredPipe_workflow.Rmd file explains workflow with an example for user to follow.
+# SurvPredPipe_workflow.Rmd: 
+This file explains workflow with an example for user to follow.
 
-The "R" folder contains Rscript for all the functions
+# R Folder:
+It folder/directory Rscript for all the functions
 
-The "inst" folder/directory contains two folders: (1) "extdata" subfolder contains example input data files, user can run example and prepare their input files accoding to example files; (2) output_data contains all the output after running the pipeline with example input data.
+# "inst" Folder: 
+This folder/directory contains two folders: (1) "extdata" subfolder contains example input data files, user can run example and prepare their input files accoding to example files; (2) output_data contains all the output after running the pipeline with example input data.
 
-The vignettes directory contains Figures, extdata, workflow file.
+# The vignettes: 
+This directory contains Figures, extdata, workflow file.
 
 
