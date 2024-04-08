@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 ```
 
 #Load Packages
-```{r }
+```r 
 #Load SurvPredPipe packages
 library(SurvPredPipe)
 #Load other required packages
@@ -42,7 +42,7 @@ library(survivalROC)
 library(ROCR)
 ```
 
-```{r }
+```{r 
 #set path of the working directory where input data available
 #setwd()
 
