@@ -22,10 +22,10 @@ library("SurvPredPipe")
 
 
 
-# SurvPredPipe_Package.pdf:
+# SurvPredPipe_Package_Description.pdf:
 This file explains description, installation detail, details of each function, variable.
 
-# SurvPredPipe_Packageworkflow.pdf: 
+# SurvPredPipe_Package_workflow.pdf: 
 This file explains workflow (Step by Step) of SurvPredPipe package with an example for user to follow.
 
 # SurvPredPipe_workflow.Rmd: 
