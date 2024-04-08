@@ -107,16 +107,7 @@ head(data[1:25],3)
 
 ```
 
-
-                  Age subtype gender  race ajcc_pathologic_tumor_stage histological_type histological_grade treatment_outcome_first_course
-TCGA-TM-A7CA-01 44.94      PN   Male WHITE                          NA       Astrocytoma                 G2    Complete Remission/Response
-TCGA-DU-A6S3-01 60.34      PN   Male WHITE                          NA Oligodendroglioma                 G2                 Stable Disease
-TCGA-CS-5390-01 47.80      PN Female WHITE                          NA Oligodendroglioma                 G2                           <NA>
-                radiation_treatment_adjuvant sample_type type OS OS.time DSS DSS.time DFI DFI.time PFI PFI.time   A1BG   A1CF     A2M  A2ML1 A3GALT2 A4GALT
-TCGA-TM-A7CA-01                           NO     Primary  LGG  0    1058   0     1058   0     1058   0     1058 0.1166 0.0073 65.8414 0.6225  0.2736 0.4515
-TCGA-DU-A6S3-01                           NO     Primary  LGG  0     656   0      656  NA       NA   0      656 0.0782 0.0070 42.7621 0.6587  0.1310 1.7230
-TCGA-CS-5390-01                          YES     Primary  LGG  0      NA   0       NA   0       NA   0       NA 0.0877 0.0000 90.7590 0.7980  0.0653 1.0989
-
+<img width="613" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/3814546d-2551-49be-b885-3d5fe42cee0c">
 
 
 
@@ -142,17 +133,7 @@ dim(output)
 head(output[1:25],3)
 ```
 
-
-
-                  Age subtype gender  race ajcc_pathologic_tumor_stage histological_type histological_grade treatment_outcome_first_course
-TCGA-TM-A7CA-01 44.94      PN   Male WHITE                          NA       Astrocytoma                 G2    Complete Remission/Response
-TCGA-DU-A6S3-01 60.34      PN   Male WHITE                          NA Oligodendroglioma                 G2                 Stable Disease
-TCGA-DU-8158-01 57.85    <NA> Female WHITE                          NA       Astrocytoma                 G3                           <NA>
-                radiation_treatment_adjuvant sample_type type OS OS.time DSS DSS.time DFI DFI.time PFI PFI.time OS_month   A1BG   A1CF     A2M  A2ML1 A3GALT2
-TCGA-TM-A7CA-01                           NO     Primary  LGG  0    1058   0     1058   0     1058   0     1058       35 0.1166 0.0073 65.8414 0.6225  0.2736
-TCGA-DU-A6S3-01                           NO     Primary  LGG  0     656   0      656  NA       NA   0      656       22 0.0782 0.0070 42.7621 0.6587  0.1310
-TCGA-DU-8158-01                         <NA>     Primary  LGG  1     155   1      155  NA       NA   1      155        5 0.2789 0.0052 91.1555 0.8302  0.0613
-
+<img width="612" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/b3538f46-a21d-44b1-80b9-c9d36c501e02">
 
 
 # Split Data into Training and Test subset
