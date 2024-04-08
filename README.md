@@ -104,7 +104,9 @@ dim(data)
 ```r
 #check top 3 rows and first 25 columns of the input data
 head(data[1:25],3)
+
 ```
+
 
                   Age subtype gender  race ajcc_pathologic_tumor_stage histological_type histological_grade treatment_outcome_first_course
 TCGA-TM-A7CA-01 44.94      PN   Male WHITE                          NA       Astrocytoma                 G2    Complete Remission/Response
@@ -139,6 +141,9 @@ dim(output)
 ```r
 head(output[1:25],3)
 ```
+
+
+
                   Age subtype gender  race ajcc_pathologic_tumor_stage histological_type histological_grade treatment_outcome_first_course
 TCGA-TM-A7CA-01 44.94      PN   Male WHITE                          NA       Astrocytoma                 G2    Complete Remission/Response
 TCGA-DU-A6S3-01 60.34      PN   Male WHITE                          NA Oligodendroglioma                 G2                 Stable Disease
@@ -158,6 +163,7 @@ Step 2 - Split Data into Training and Test Subset: Before proceeding further, we
 # split data into training and test set
 SurvPredPipe::tr_test_f(data="New_data.txt",fraction=0.9, train_data="train_FPKM.txt", test_data="test_FPKM.txt")
 ```
+
 After the train-test split, we got two new outputs:  “train_FPKM.txt”, “test_FPKM.txt”, where, train_FPKM.txt contains 158 samples and test_FPKM.txt contains 18 samples. Thus, tr_test_f function splits data into a 90:10 ratio. 
 
 Let’s Check output of tr_test_f function:
@@ -208,6 +214,8 @@ train_Normalized_data_clin_data <- read.table("Train_Norm_data.txt", sep="\t", h
 head(train_Normalized_data_clin_data[1:25],2)
 ```
 
+
+
                   Age subtype gender  race ajcc_pathologic_tumor_stage histological_type histological_grade treatment_outcome_first_course
 TCGA-CS-5396-01 53.11      PN Female WHITE                          NA Oligodendroglioma                 G3                           <NA>
 TCGA-DU-A76L-01 54.27      ME   Male WHITE                          NA Oligodendroglioma                 G3            Progressive Disease
@@ -223,12 +231,15 @@ TCGA-DU-A76L-01                         <NA>     Primary  LGG  1     814   1    
 dim(test_Normalized_data_clin_data)
 
 ```
+
 [1]    18 19998
 
 ```r
 #View top 2 rows of test data with first 25 columns
 head(test_Normalized_data_clin_data[1:25],2)
 ```
+
+
 
                   Age subtype gender  race ajcc_pathologic_tumor_stage histological_type histological_grade treatment_outcome_first_course
 TCGA-DH-A669-02 70.66      PN   Male WHITE                          NA Oligodendroglioma                 G3                 Stable Disease
@@ -252,6 +263,7 @@ SurvPredPipe::Lasso_PI_scores_f(train_data="Train_Norm_data.txt",test_data="Test
 ```
 
 
+
 Thus, the Lasso_PI_scores_f gave us following outputs:
 Train_Lasso_key_variables.txt: List of features selected by LASSO and their beta coefficient values
 
@@ -270,6 +282,8 @@ dim(Lasso_key_variables)
 #view top of file
 head(Lasso_key_variables)
 ```
+
+
            coeff
 ALG6       0.037
 ARHGAP11A  0.096
@@ -300,6 +314,9 @@ dim(train_PI_data)
 #View top 2 rows
 head(train_PI_data,2)
 ```
+
+
+
                 OS OS_month  ALG6 ARHGAP11A  DESI1 GALNT7  GJD3   GPC1 H2BC5 HOXD12 RNF185 TANGO2    UNG ZNF648       PI
 
 TCGA-CS-5396-01  0       54 4.705     1.241 24.866  5.760 0.074 20.434 4.004  0.019 19.033  1.660 11.262  0.115 0.287790
@@ -319,6 +336,8 @@ dim(test_PI_data)
 #View top 2 rows
 head(test_PI_data,2)
 ```
+
+
 
                 OS OS_month  ALG6 ARHGAP11A  DESI1 GALNT7  GJD3   GPC1 H2BC5 HOXD12 RNF185 TANGO2    UNG ZNF648        PI
 
@@ -355,6 +374,9 @@ dim(Univariate_Survival_Significant_genes_List)
 #View top 5 rows of Univariate Significant genes results 
  head(Univariate_Survival_Significant_genes_List,5)
 ```
+
+
+
               Beta        HR     P-value GP1 GP2 Hr-Inv-lst Concordance  Std_Error
 
 A2ML1   -0.9255326 0.3963203 0.016055099  20 138  2.5232117   0.5578119 0.03819547
@@ -380,6 +402,8 @@ Train_Uni_sig_data.txt: It contains expression of significant genes selected by 
 head(train_Uni_sig_data[1:20],2)
 ```
 
+
+
                 A2ML1 AADACL2  AARS1 ABCA12 ABCA6 ABCC11 ABCC3 ABCC9 ABHD10 ABHD11   ABI1 ABI3BP ABLIM1 AC004997.1 AC005832.4 AC006030.1 AC011455.2 AC012309.1
 TCGA-CS-5396-01 0.286       0 33.197  0.214 0.403  0.157 1.152 0.630 12.924  6.461 22.471  0.541 14.608      0.000          0      0.006          0      0.015
 TCGA-DU-A76L-01 0.108       0 26.215  0.298 0.231  0.059 5.263 0.371  9.812  7.890 14.744  0.877  9.228      0.005          0      0.010          0      0.007
@@ -397,12 +421,17 @@ test_Uni_sig_data<- read.table("Test_Uni_sig_data.txt", sep="\t", header=TRUE, r
 dim(test_Uni_sig_data)
 ```
 
+
+
 [1]   18 2391
 
 ```r
 #View top rows of test data
 head(test_Uni_sig_data[1:20],2)
 ```
+
+
+
                 A2ML1 AADACL2  AARS1 ABCA12 ABCA6 ABCC11 ABCC3 ABCC9 ABHD10 ABHD11   ABI1 ABI3BP ABLIM1 AC004997.1 AC005832.4 AC006030.1 AC011455.2 AC012309.1
 TCGA-DH-A669-02 0.401       0 37.720  0.078 0.011  0.073 0.338 0.194 14.795 17.986 20.666  0.272 13.782      0.000          0          0          0          0
 TCGA-WY-A859-01 1.748       0 36.523  0.023 0.032  0.090 0.122 0.575 15.203  6.817 31.915  0.341 17.683      0.002          0          0          0          0
@@ -437,6 +466,8 @@ dim(survCurves_data)
 #View top 5 rows of Survival curve data
 head(survCurves_data,5)
 ```
+
+
   time_point TCGA-DH-A669-02 TCGA-WY-A859-01 TCGA-TQ-A7RN-01 TCGA-FG-A6IZ-01 TCGA-HW-8319-01 TCGA-TM-A7CF-02 TCGA-DU-7010-01 TCGA-HT-7686-01 TCGA-WY-A858-01
 1   0.000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000       1.0000000
 2   3.466667       0.9909155       0.9972704       0.9773009       0.9955466       0.9960141       0.9961896       0.9905094       0.9939210       0.9959694
@@ -466,6 +497,8 @@ dim(mean_median_survival_time_data)
 View top 5 rows of mean_median_survival_time_data
 head(mean_median_survival_time_data,5)
 ```
+
+
               IDs     Mean   Median
 1 TCGA-DH-A669-02 67.84700 60.52883
 2 TCGA-WY-A859-01 90.91569 85.75383
@@ -480,6 +513,8 @@ Error_mat_for_Model <- read.table("Error_mat_for_Model.txt", sep="\t", header=TR
 #View Error mat
 head(Error_mat_for_Model)
 ```
+
+
 
     IBS_Score c_index
 IBS     0.192    0.81
