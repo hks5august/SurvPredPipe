@@ -133,7 +133,8 @@ dim(output)
 head(output[1:25],3)
 ```
 
-<img width="612" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/b3538f46-a21d-44b1-80b9-c9d36c501e02">
+<img width="1852" alt="image" src="https://github.com/hks5august/SurvPredPipe/assets/46756503/3d4bdf56-bf89-4567-adda-2cf92f74949b">
+
 
 
 # Split Data into Training and Test subset
