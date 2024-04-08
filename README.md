@@ -45,7 +45,7 @@ This directory contains Figures, extdata, workflow file.
 # Run an Example
 Before running an Example, make sure input data files must be downloaded in your working Directory on your Local System:
 
-#Load Packages
+Load all Libraries/packages
 ```r
 #Load SurvPredPipe packages
 library(SurvPredPipe)
@@ -72,7 +72,7 @@ library(survivalROC)
 library(ROCR)
 ```
 
-#set path of working directory where input data (from inst folder) available
+set path of working directory where input data (from inst folder) available
 
 ```r
 setwd("../")
