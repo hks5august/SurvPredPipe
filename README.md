@@ -26,3 +26,8 @@ The "R" folder contains Rscript for all the functions
 The "inst" folder/directory contains two folders: (1) "extdata" subfolder contains example input data files, user can run example and prepare their input files accoding to example files; (2) output_data contains all the output after running the pipeline with example input data.
 
 The vignettes directory contains Figures, extdata, workflow file.
+
+
+![SurvPredPipe_workflow](https://github.com/hks5august/SurvPredPipe/assets/46756503/8c91632d-2243-4cca-ba53-9a12b07d6b20)
+
+Figure: The Workflow of SurvPredPipe representing different steps performed by various functions of SurvPredPipe package.
