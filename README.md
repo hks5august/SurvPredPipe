@@ -112,7 +112,8 @@ head(data[1:25],3)
 
 
 
-Step 1- Data Processing: The `data_process_f` function converts OS time (in days) into months and then removes samples where OS/OS.time information is missing.
+# Step 1- Data Processing: 
+The `data_process_f` function converts OS time (in days) into months and then removes samples where OS/OS.time information is missing.
 Here, we need to provide input data in tsv or txt  format. Further, we needs to define col_num (column number at which clinical/demographic and survival information ends,e.g. 20,  surv_time (name of column which contain survival time (in days) information, e.g. OS.time ) and output file name, e.g.  “New_data.txt”
 
 ```r
