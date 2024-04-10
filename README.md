@@ -21,6 +21,9 @@ library("SurvPredPipe")
 ```
 
 
+# "inst" Folder: 
+This folder/directory contains two folders: (1) **extdata** subfolder, which contains example input data files, user can run example and prepare their input files accoding to example files; (2) **output_data** contains all the output files after running the pipeline with example input data.
+
 
 # SurvPredPipe_Package_Description.pdf:
 This file explains description, installation detail, details of each function, variable.
@@ -34,8 +37,6 @@ This file explains workflow with an example for user to follow.
 # R Folder:
 It folder/directory Rscript for all the functions
 
-# "inst" Folder: 
-This folder/directory contains two folders: (1) "extdata" subfolder contains example input data files, user can run example and prepare their input files accoding to example files; (2) output_data contains all the output after running the pipeline with example input data.
 
 # The vignettes: 
 This directory contains Figures, extdata, workflow file.
@@ -43,7 +44,7 @@ This directory contains Figures, extdata, workflow file.
 
 
 # Run an Example
-Before running an Example, make sure input data files must be downloaded in your working Directory on your Local System:
+**Note**: Before running an Example, make sure input data files must be downloaded in your working Directory on your Local System. All the required Example data files available in the **inst/extdata** folder.
 
 Load all Libraries/packages
 ```r
@@ -89,9 +90,8 @@ Features information: In the data there are 11 clinical + demographic, 4 types s
 Clinical and demographic features: Clinical demographic features that are present in this example data include Age,  subtype,  gender,  race,  ajcc_pathologic_tumor_stage,  histological_type, histological_grade,  treatment_outcome_first_course, radiation_treatment_adjuvant,  sample_type,  type.
 Types of Survival: 4 types of Survival include OS (overall survival), PFS (progression-free survival), DSS (disease-specific survival), DFS (Disease-free survival). In the data, column names OS, PFS, DSS and DFS represent event information, while  OS.time, PFS.time, DSS.time and DFS.time indicate survival time in days.
 
-# Note: 
-Please download Example data in your working directory from **inst/extdata** folder.
 
+**Note:** Please download Example data in your working directory from **inst/extdata** folder.
 Let’s Check input Data:
 
 ```r
