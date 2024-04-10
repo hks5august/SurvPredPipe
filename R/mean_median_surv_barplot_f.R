@@ -5,6 +5,7 @@
 #' @import dplyr
 #' @import reshape2
 #' @import ggplot2
+#' @import svglite
 #' @examples
 #' mean_median_surv_barplot_f(surv_mean_med_data="../inst/extdata/mean_median_survival_time_data.txt", selected_sample="TCGA-TQ-A8XE-01")
 #' usgae: mean_median_surv_barplot_f(surv_mean_med_data, selected_sample)

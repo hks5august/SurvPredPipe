@@ -10,11 +10,11 @@ License: GPL-3|file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
-Imports: Rcpp, MASS, dplyr, reshape2, glmnet, caret, survival, survminer, ggfortify, ggplot2, MTLR, SurvMetrics, pec, preprocessCore, rms, Hmisc, ROCR, Matrix, survivalROC
+Imports: Rcpp, MASS, dplyr, reshape2, glmnet, caret, survival, survminer, ggfortify, ggplot2, MTLR, SurvMetrics, pec, preprocessCore, rms, Hmisc, ROCR, Matrix, survivalROC, svglite
 Suggests:
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
-biocViews: DataProcessing, DataNormalization, FeatureSelection, PrognosticIndex, PredictiveModeling, SurvivalAnalysis, SurvivalCurve, NomogramGeneration
+biocViews: DataProcessing, DataNormalization, FeatureSelection, PrognosticIndex, PredictiveModeling, SurvivalAnalysis, SurvivalCurve, NomogramGeneration, Nomogram

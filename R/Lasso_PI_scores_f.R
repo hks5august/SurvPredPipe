@@ -12,6 +12,7 @@
 #' @import survminer
 #' @import ggplot2
 #' @import glmnet
+#' @import svglite
 #' @examples
 #' Lasso_PI_scores_f(train_data="../inst/extdata/Train_Norm_data.txt",test_data="../inst/extdata/Test_Norm_data.txt", nfolds=5, col_num=21, surv_time="OS_month" , surv_event="OS" , train_PI_data="Train_PI_data.txt", test_PI_data="Test_PI_data.txt" )
 #' Usage: Lasso_PI_scores_f(train_data, test_data, nfolds, col_num, surv_time, surv_event, train_PI_data, test_PI_data)

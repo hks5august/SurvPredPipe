@@ -5,6 +5,7 @@
 #' @import dplyr
 #' @import reshape2
 #' @import ggplot2
+#' @import svglite
 #' @examples
 #' surv_curve_plots_f(Surv_curve_data="../inst/extdata/survCurves_data.txt", selected_sample="TCGA-TQ-A8XE-01") 
 #' usgae: surv_curve_plots_f(Surv_curve_data, selected_sample)

@@ -11,6 +11,7 @@
 #' @import survivalROC
 #' @import SurvMetrics
 #' @import Matrix
+#' @import svglite
 #' @examples
 #' Nomogram_generate_f(data="../inst/extdata/Train_Data_Nomogram_input.txt",  Feature_List="../inst/extdata/feature_list_for_Nomogram.txt", surv_time="OS_month", surv_event="OS")
 #' Usage: Nomogram_generate_f(data,  Feature_List, surv_time, surv_event)
