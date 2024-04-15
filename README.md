@@ -178,7 +178,7 @@ Next to select features and develop ML models, data must be normalized. Since, e
 
 ```r
 #Data Normalization
-SurvPredPipe::train_test_normalization_f(train_data="train_FPKM.txt",test_data="test_FPKM.txt", col_num=21, train_clin_data="Train_Clin.txt", test_clin_data="Test_Clin.txt", train_Normalized_data_clin_data="Train_Norm_data.txt", test_Normalized_data_clin_data="Test_Norm_data.txt")``
+SurvPredPipe::train_test_normalization_f(train_data="train_FPKM.txt",test_data="test_FPKM.txt", col_num=21, train_clin_data="Train_Clin.txt", test_clin_data="Test_Clin.txt", train_Normalized_data_clin_data="Train_Norm_data.txt", test_Normalized_data_clin_data="Test_Norm_data.txt")
 ```
 
 After, running the function, we obtained 4 outputs: 
