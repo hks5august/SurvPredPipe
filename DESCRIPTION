@@ -1,8 +1,8 @@
 Package: SurvPredPipe
 Title: R-Package for the Computational Pipeline to Predict Survival Probability of Cancer Patients
 Version: 1.0.0
-Authors@R:
-    person("Harpreet", "Kaur", "hks04180@gmail.com", "harpreet.kaur2@nih.gov", role = c("aut", "cre"),
+Authors@R: person("Harpreet", "Kaur", email = "hks04180@gmail.com", 
+           role = c("aut", "cre"),
            comment = c(ORCID = "https://orcid.org/0000-0003-0421-8341"))
 Maintainer: Harpreet Kaur <harpreet.kaur2@nih.gov>, <hks04180@gmail.com>
 Description: This package provides a pipeline for predicting the survival probability of cancer patients. It includes data processing, data normalization, feature selection, LASSO PI Score generation, development of prediction models, and visualization tools.
@@ -23,6 +23,7 @@ Imports:
 	SurvMetrics (>= 0.5.0),
 	pec (>= 2023.4.12),
 	glmnet (>= 4.1.7),
+	ggfortify (>= 0.4.16),
 	rms (>= 6.6.0),
 	preprocessCore (>= 1.58.0),
 	survivalROC (>= 1.0.3.1),
