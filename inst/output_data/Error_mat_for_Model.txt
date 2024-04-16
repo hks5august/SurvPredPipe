@@ -1,0 +1,2 @@
+IBS_Score	c_index
+IBS	0.189	0.8
