@@ -1,7 +1,0 @@
-ID
-Age
-gender
-race
-histological_type
-sample_type
-PI

@@ -1,9 +1,0 @@
-ID
-Age
-subtype
-gender
-race
-histological_type
-histological_grade
-sample_type
-radiation_treatment_adjuvant
