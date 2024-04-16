@@ -15,11 +15,29 @@ install.packages("remotes")
 #load remortes package
 library("remotes")
 #Step2: install SurvPredPipe package
-remotes::install_github("hks5august/SurvPredPipe", local = TRUE)
+remotes::install_github("hks5august/SurvPredPipe", local = TRUE, , dependencies=TRUE)
+#or use following command
+remotes::install_github("hks5august/SurvPredPipe", ref = "v1.0.0", dependencies=TRUE)
 # load package
 library("SurvPredPipe") 
 ```
 
+# Another approach to install this package:
+In case, if user is unable to install the package since it requred 18 other packages for dependcies. Please try following approach:
+
+### First Install all Dependecies or required packages for  installation and working of SurvPredPipe 
+#### Following 18 packages are need to be installed
+
+‘MASS’, ‘dplyr’, ‘reshape2’, ‘caret’, ‘survival’, ‘survminer’, ‘ggplot2’, ‘MTLR’, ‘SurvMetrics’, ‘pec’, ‘glmnet’, ‘ggfortify’, ‘rms’, ‘preprocessCore’, ‘survivalROC’, ‘ROCR’, ‘Hmisc’, ‘Matrix’ 
+
+#### Note: Since, some of above packages are avialble on Bioconductor and so can be installed from the Bioconductor. Please, check intsllation instructions of each package individually. 
+
+```r
+
+#Step: install SurvPredPipe package from Github repository
+install.packages("https://github.com/hks5august/SurvPredPipe/releases/download/v1.0.0/SurvPredPipe_1.0.0.tar.gz", repos = NULL, type = "source")
+
+```
 
 # "inst" Folder: 
 This folder/directory contains two folders: (1) **extdata** subfolder, which contains example input data files, user can run example and prepare their input files accoding to example files; (2) **output_data** contains all the output files after running the pipeline with example input data.
