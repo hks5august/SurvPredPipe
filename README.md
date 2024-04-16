@@ -119,11 +119,15 @@ head(data[1:25],3)
 The `data_process_f` function converts OS time (in days) into months and then removes samples where OS/OS.time information is missing.
 Here, we need to provide input data in tsv or txt  format. Further, we needs to define col_num (column number at which clinical/demographic and survival information ends,e.g. 20,  surv_time (name of column which contain survival time (in days) information, e.g. OS.time ) and output file name, e.g.  “New_data.txt”
 
-## Access data directly from the package:
+### Load or Access data directly from the package:
 
 ```r
 #load data from the package
 input_data_file_path <- system.file("extdata", "Example_TCGA_LGG_FPKM_data.txt", package = "SurvPredPipe")
+```
+### Perform data processing
+
+```r
 
 # Perform data processing
 SurvPredPipe::data_process_f(data=input_data_file_path,col_num=20, surv_time="OS.time" , output="New_data.txt")
