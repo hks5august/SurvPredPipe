@@ -64,10 +64,17 @@ This directory contains Figures, extdata, workflow file.
 # Run an Example
 **Note**: Before running an Example, make sure input data files must be downloaded in your working Directory on your Local System. All the required Example data files available in the **inst/extdata** folder.
 
-Load all Libraries/packages
+Load package
 ```r
 #Load SurvPredPipe packages
 library(SurvPredPipe)
+
+```
+if needed please also load other required packages
+
+
+#### Load all Libraries/packages
+```r
 #Load other required packages
 library(caret)
 library(preprocessCore)
