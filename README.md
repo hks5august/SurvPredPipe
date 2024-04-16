@@ -119,10 +119,23 @@ head(data[1:25],3)
 The `data_process_f` function converts OS time (in days) into months and then removes samples where OS/OS.time information is missing.
 Here, we need to provide input data in tsv or txt  format. Further, we needs to define col_num (column number at which clinical/demographic and survival information ends,e.g. 20,  surv_time (name of column which contain survival time (in days) information, e.g. OS.time ) and output file name, e.g.  “New_data.txt”
 
+## Access data directly from the package:
+
+```r
+#load data from the package
+input_data_file_path <- system.file("extdata", "Example_TCGA_LGG_FPKM_data.txt", package = "SurvPredPipe")
+
+# Perform data processing
+SurvPredPipe::data_process_f(data=input_data_file_path,col_num=20, surv_time="OS.time" , output="New_data.txt")
+
+```
+or if user have downloaded data in their working directory or with their own data, then user can perform data processing as following:
+
 ```r
 #Data Processing: 
 SurvPredPipe::data_process_f(data="Example_TCGA_LGG_FPKM_data.txt",col_num=20, surv_time="OS.time" , output="New_data.txt")
 ```
+
 
 After data processing, data_process_f function will give us a new output file “New_data.txt”, which contains 176 samples. Thus, data_process_f function removes 8 samples where OS/OS time information is missing. Besides, here is a new 21st column in the data with  column name “OS_month”  where OS time is available in months.
 
@@ -150,6 +163,7 @@ Step 2 - Split Data into Training and Test Subset: Before proceeding further, we
 # split data into training and test set
 SurvPredPipe::tr_test_f(data="New_data.txt",fraction=0.9, train_data="train_FPKM.txt", test_data="test_FPKM.txt")
 ```
+
 
 After the train-test split, we got two new outputs:  “train_FPKM.txt”, “test_FPKM.txt”, where, train_FPKM.txt contains 158 samples and test_FPKM.txt contains 18 samples. Thus, tr_test_f function splits data into a 90:10 ratio. 
 
@@ -449,7 +463,7 @@ Next to visualize survival of patients, we will plot survival curve plots using 
 
 ```r
 #Create Survival curves/plots for individual patients
-SurvPredPipe::surv_curve_plots_f(Surv_curve_data="survCurves_data.txt", selected_sample="TCGA-TQ-A8XE-01")
+SurvPredPipe::surv_curve_plots_f(Surv_curve_data="survCurves_data.txt", selected_sample="TCGA-S9-A7QY-01")
 ```
 
 Let’s check output of  surv_curve_plots_f function:
@@ -470,7 +484,7 @@ Next to visualize predicted survival time of patients, we will plot barplot for 
 
 ```r
 #Create Bar Plot for predicted  mean and median survival time 
-SurvPredPipe::mean_median_surv_barplot_f(surv_mean_med_data="mean_median_survival_time_data.txt", selected_sample="TCGA-TQ-A8XE-01")
+SurvPredPipe::mean_median_surv_barplot_f(surv_mean_med_data="mean_median_survival_time_data.txt", selected_sample="TCGA-S9-A7QY-01")
 ```
 
 Let’s check output of mean_median_surv_barplot_f function:
